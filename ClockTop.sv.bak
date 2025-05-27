@@ -1,0 +1,45 @@
+module ClockTop (
+    input logic clk,    // 50 МГц
+    input logic rst,
+    output logic [$clog2(60):0] minutes,
+    output logic [$clog2(24):0] hours
+);
+
+    // Сигнал тика раз в минуту
+    logic minute_tick;
+
+    // Тик при переполнении минут (раз в час)
+    logic hour_tick;
+
+    // 1. Модуль: счётчик тиков — 1 тик в минуту (50_000_000 * 60 = 3_000_000_000)
+    TickCounter #(
+        .TICK_COUNT_MAX(3000000000)
+    ) tick_counter (
+        .clk(clk),
+        .rst(rst),
+        .tick(minute_tick)
+    );
+
+    // 2. Модуль: счётчик минут (от 0 до 59)
+    TimeCounter #(
+        .MAX_COUNT(60)
+    ) minute_counter (
+        .clk(clk),
+        .rst(rst),
+        .inc_tick(minute_tick),
+        .value(minutes),
+        .rollover(hour_tick)  // переполнение → час
+    );
+
+    // 3. Модуль: счётчик часов (от 0 до 23)
+    TimeCounter #(
+        .MAX_COUNT(24)
+    ) hour_counter (
+        .clk(clk),
+        .rst(rst),
+        .inc_tick(hour_tick),
+        .value(hours),
+        .rollover() // можно использовать для дней, если нужно
+    );
+
+endmodule

@@ -1,0 +1,37 @@
+module AlarmModule (
+    input  logic clk,
+    input  logic rst,
+
+    // Текущее время
+    input  logic [$clog2(60)-1:0] curr_minutes,
+    input  logic [$clog2(24)-1:0] curr_hours,
+
+    // Установка будильника (например, через модуль настроек)
+    input  logic set_alarm,  // импульс: "сохранить новые значения"
+    input  logic [$clog2(60)-1:0] set_minutes,
+    input  logic [$clog2(24)-1:0] set_hours,
+
+    // Выход: сигнал срабатывания будильника
+    output logic alarm_trigger
+);
+
+    // Регистр хранения целевого времени будильника
+    logic [$clog2(60)-1:0] alarm_minutes;
+    logic [$clog2(24)-1:0] alarm_hours;
+
+    // Сохраняем заданное время по сигналу set_alarm
+    always_ff @(posedge clk) begin
+        if (!rst) begin
+            alarm_minutes <= 0;
+            alarm_hours   <= 0;
+        end else if (set_alarm) begin
+            alarm_minutes <= set_minutes;
+            alarm_hours   <= set_hours;
+        end
+    end
+
+    // Сравнение текущего времени с будильником
+    assign alarm_trigger = (curr_minutes == alarm_minutes) &&
+                           (curr_hours   == alarm_hours);
+
+endmodule

@@ -1,0 +1,48 @@
+`timescale 1ns/1ps
+
+module ClockTop_tb;
+
+    // Порты топ-модуля
+    logic clk;
+    logic rst;
+    logic [$clog2(60):0] minutes;
+    logic [$clog2(24):0] hours;
+
+    // Instantiate top-level clock module
+    ClockTop #(
+        // Переопределим количество тиков для одной "минуты" — всего 2 такта
+        .TICK_COUNT_MAX(2)
+    ) dut (
+        .clk(clk),
+        .rst(rst),
+        .minutes(minutes),
+        .hours(hours)
+    );
+
+    // Генератор тактов
+    initial clk = 0;
+    always #5 clk = ~clk; // 10 нс период = 100 МГц (неважно, просто для симуляции)
+
+    // Тестовая логика
+    initial begin
+        // Начальное состояние
+        rst = 0;
+        #20;
+        rst = 1;
+
+        // Подождём некоторое время, чтобы увидеть, как считаются "минуты" и "часы"
+        #500;
+
+        // Завершаем симуляцию
+        $display("FINISHED");
+        $stop;
+    end
+
+    // Монитор вывода — отслеживает минуты и часы
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            $display("Time: %0t ns | Minutes: %0d | Hours: %0d", $time, minutes, hours);
+        end
+    end
+
+endmodule

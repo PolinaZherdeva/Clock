@@ -1,0 +1,22 @@
+module TimeCounter #(
+    parameter MAX_COUNT = 60  //60 минут
+)(
+    input  logic clk,
+    input  logic rst,
+    input  logic inc_tick // входной тик от TickCounter
+    output logic [$clog2(MAX_COUNT):0] value,
+    output logic rollover         // переполнение (например, 60 минут —> 0 + сигнал)
+);
+    always_ff @(posedge clk) begin
+        if (!rst)
+            value <= 0;
+        else if (inc_tick) begin
+            if (value == MAX_COUNT - 1)
+                value <= 0;
+            else
+                value <= value + 1;
+        end
+    end
+
+    assign rollover = (value == MAX_COUNT - 1) && inc_tick;
+endmodule
