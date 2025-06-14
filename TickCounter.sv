@@ -3,6 +3,7 @@ module TickCounter #(
 )(
     input  logic clk,
     input  logic rst, // Сброс
+	
     output logic tick  // Импульс один такт
 );
 
@@ -12,7 +13,7 @@ module TickCounter #(
     always_ff @(posedge clk) begin
         if (!rst)
             counter <= 0;
-        else if (counter == TICK_COUNT_MAX - 1)
+       else if (counter == TICK_COUNT_MAX - 1)
             counter <= 0;
         else
             counter <= counter + 1;

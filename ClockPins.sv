@@ -13,7 +13,7 @@ module ClockPins(
 (* altera_atribute = `v1_2, chip_pin = `pins_hex1 *) output [6:0]  seg_display_1,
 (* altera_atribute = `v3_3, chip_pin = `pins_hex2 *) output [6:0]  seg_display_2,
 (* altera_atribute = `v3_3, chip_pin = `pins_hex3 *) output [6:0]  seg_display_3, 
-(* chip_pin = "L7, K6, D8, E9, A5, B6" *) output[6:0] leds,
+(* chip_pin = "F7, F6, G6, G7, J8, J7, K10, K8, H7, J10, L7, K6, D8, E9, A5, B6, H8, H9" *) output[17:0] leds,
 (* altera_atribute = "-name IO_STANDARD\"1.2-V\"", chip_pin = "P11" *) input rst,
 (* chip_pin = "H12" *) input clk
 );

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for alarm
-Sun Jun 15 03:15:10 2025
+Sun Jun 15 03:45:19 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -21,19 +21,21 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  13. Parameter Settings for User Entity Instance: ClockTop:ClockTop|TickCounter:tick_counter
  14. Parameter Settings for User Entity Instance: ClockTop:ClockTop|TimeCounter:minute_counter
  15. Parameter Settings for User Entity Instance: ClockTop:ClockTop|TimeCounter:hour_counter
- 16. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0
- 17. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0
- 18. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0
- 19. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0
- 20. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc"
- 21. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_hour_units_enc"
- 22. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_min_tens_enc"
- 23. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_min_units_enc"
- 24. Port Connectivity Checks: "ClockTop:ClockTop|TimeCounter:hour_counter"
- 25. Port Connectivity Checks: "ClockTop:ClockTop|TimeCounter:minute_counter"
- 26. Port Connectivity Checks: "ClockTop:ClockTop"
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
+ 16. Parameter Settings for User Entity Instance: ClockTop:ClockTop|AlarmSignal:alarmSignal
+ 17. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0
+ 18. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0
+ 19. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0
+ 20. Parameter Settings for Inferred Entity Instance: ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0
+ 21. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc"
+ 22. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_hour_units_enc"
+ 23. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_min_tens_enc"
+ 24. Port Connectivity Checks: "ClockTop:ClockTop|SevenSegEncoder:seg_min_units_enc"
+ 25. Port Connectivity Checks: "ClockTop:ClockTop|AlarmModule:alarmModule"
+ 26. Port Connectivity Checks: "ClockTop:ClockTop|TimeCounter:hour_counter"
+ 27. Port Connectivity Checks: "ClockTop:ClockTop|TimeCounter:minute_counter"
+ 28. Port Connectivity Checks: "ClockTop:ClockTop"
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
 
 
 
@@ -59,14 +61,14 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +-------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status         ; Successful - Sun Jun 15 03:15:10 2025           ;
+; Analysis & Synthesis Status         ; Successful - Sun Jun 15 03:45:19 2025           ;
 ; Quartus II 64-Bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                       ; alarm                                           ;
 ; Top-level Entity Name               ; ClockPins                                       ;
 ; Family                              ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)         ; N/A                                             ;
-; Total registers                     ; 38                                              ;
-; Total pins                          ; 37                                              ;
+; Total registers                     ; 56                                              ;
+; Total pins                          ; 48                                              ;
 ; Total virtual pins                  ; 0                                               ;
 ; Total block memory bits             ; 0                                               ;
 ; Total DSP Blocks                    ; 0                                               ;
@@ -195,6 +197,8 @@ applicable agreement for further details.
 ; TickCounter.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/Clock/TickCounter.sv                                               ;         ;
 ; TimeCounter.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/Clock/TimeCounter.sv                                               ;         ;
 ; ClockTop.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Clock/ClockTop.sv                                                  ;         ;
+; AlarmModule.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/Clock/AlarmModule.sv                                               ;         ;
+; AlarmSignal.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/Clock/AlarmSignal.sv                                               ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
@@ -215,23 +219,23 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 111       ;
+; Estimate of Logic utilization (ALMs needed) ; 114       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 215       ;
+; Combinational ALUT usage for logic          ; 217       ;
 ;     -- 7 input functions                    ; 0         ;
 ;     -- 6 input functions                    ; 6         ;
-;     -- 5 input functions                    ; 8         ;
-;     -- 4 input functions                    ; 30        ;
-;     -- <=3 input functions                  ; 171       ;
+;     -- 5 input functions                    ; 11        ;
+;     -- 4 input functions                    ; 28        ;
+;     -- <=3 input functions                  ; 172       ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 38        ;
+; Dedicated logic registers                   ; 56        ;
 ;                                             ;           ;
-; I/O pins                                    ; 37        ;
+; I/O pins                                    ; 48        ;
 ; Total DSP Blocks                            ; 0         ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 38        ;
-; Total fan-out                               ; 774       ;
-; Average fan-out                             ; 2.37      ;
+; Maximum fan-out                             ; 56        ;
+; Total fan-out                               ; 849       ;
+; Average fan-out                             ; 2.30      ;
 +---------------------------------------------+-----------+
 
 
@@ -240,8 +244,9 @@ applicable agreement for further details.
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                     ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |ClockPins                                   ; 215 (0)           ; 38 (0)       ; 0                 ; 0          ; 37   ; 0            ; |ClockPins                                                                                                                                              ; work         ;
-;    |ClockTop:ClockTop|                       ; 215 (0)           ; 38 (0)       ; 0                 ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop                                                                                                                            ; work         ;
+; |ClockPins                                   ; 217 (0)           ; 56 (0)       ; 0                 ; 0          ; 48   ; 0            ; |ClockPins                                                                                                                                              ; work         ;
+;    |ClockTop:ClockTop|                       ; 217 (0)           ; 56 (0)       ; 0                 ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop                                                                                                                            ; work         ;
+;       |AlarmSignal:alarmSignal|              ; 2 (2)             ; 18 (18)      ; 0                 ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|AlarmSignal:alarmSignal                                                                                                    ; work         ;
 ;       |SevenSegEncoder:seg_hour_tens_enc|    ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc                                                                                          ; work         ;
 ;       |SevenSegEncoder:seg_hour_units_enc|   ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_hour_units_enc                                                                                         ; work         ;
 ;       |SevenSegEncoder:seg_min_tens_enc|     ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_min_tens_enc                                                                                           ; work         ;
@@ -269,14 +274,21 @@ applicable agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; ClockTop:ClockTop|alarm_signal[0..6]  ; Stuck at VCC due to stuck port data_in ;
-; Total Number of Removed Registers = 7 ;                                        ;
-+---------------------------------------+----------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                     ;
++---------------------------------------------------------------+----------------------------------------+
+; Register name                                                 ; Reason for Removal                     ;
++---------------------------------------------------------------+----------------------------------------+
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_hours[1..3]   ; Stuck at GND due to stuck port data_in ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_hours[0]      ; Stuck at VCC due to stuck port data_in ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_hours[4,5]    ; Stuck at GND due to stuck port data_in ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_minutes[0]    ; Stuck at GND due to stuck port data_in ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_minutes[1]    ; Stuck at VCC due to stuck port data_in ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_minutes[2]    ; Stuck at GND due to stuck port data_in ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_minutes[3]    ; Stuck at VCC due to stuck port data_in ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_minutes[4..6] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 13                        ;                                        ;
++---------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -284,7 +296,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 38    ;
+; Total registers                              ; 56    ;
 ; Number of registers using Synchronous Clear  ; 38    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -299,7 +311,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
-; 3:1                ; 25 bits   ; 50 LEs        ; 0 LEs                ; 50 LEs                 ; Yes        ; |ClockPins|ClockTop:ClockTop|TickCounter:tick_counter|counter[18]  ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 0 LEs                ; 50 LEs                 ; Yes        ; |ClockPins|ClockTop:ClockTop|TickCounter:tick_counter|counter[19]  ;
 ; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|counter[5] ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
@@ -338,6 +350,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LOCATION   ; Pin_AC24 ; -    ; seg_display_3[2]     ;
 ; LOCATION   ; Pin_AC23 ; -    ; seg_display_3[1]     ;
 ; LOCATION   ; Pin_AC22 ; -    ; seg_display_3[0]     ;
+; LOCATION   ; Pin_F7   ; -    ; leds[17]             ;
+; LOCATION   ; Pin_F6   ; -    ; leds[16]             ;
+; LOCATION   ; Pin_G6   ; -    ; leds[15]             ;
+; LOCATION   ; Pin_G7   ; -    ; leds[14]             ;
+; LOCATION   ; Pin_J8   ; -    ; leds[13]             ;
+; LOCATION   ; Pin_J7   ; -    ; leds[12]             ;
+; LOCATION   ; Pin_K10  ; -    ; leds[11]             ;
+; LOCATION   ; Pin_K8   ; -    ; leds[10]             ;
+; LOCATION   ; Pin_H7   ; -    ; leds[9]              ;
+; LOCATION   ; Pin_J10  ; -    ; leds[8]              ;
+; LOCATION   ; Pin_L7   ; -    ; leds[7]              ;
+; LOCATION   ; Pin_K6   ; -    ; leds[6]              ;
+; LOCATION   ; Pin_D8   ; -    ; leds[5]              ;
+; LOCATION   ; Pin_E9   ; -    ; leds[4]              ;
+; LOCATION   ; Pin_A5   ; -    ; leds[3]              ;
+; LOCATION   ; Pin_B6   ; -    ; leds[2]              ;
+; LOCATION   ; Pin_H8   ; -    ; leds[1]              ;
+; LOCATION   ; Pin_H9   ; -    ; leds[0]              ;
 ; LOCATION   ; Pin_P11  ; -    ; rst                  ;
 ; LOCATION   ; Pin_H12  ; -    ; clk                  ;
 +------------+----------+------+----------------------+
@@ -380,6 +410,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------------------------------+
 ; MAX_COUNT      ; 24    ; Signed Integer                                                 ;
 +----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ClockTop:ClockTop|AlarmSignal:alarmSignal ;
++----------------+----------+------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                       ;
++----------------+----------+------------------------------------------------------------+
+; ALARM_TIME     ; 10000000 ; Signed Integer                                             ;
++----------------+----------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -511,6 +551,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ClockTop:ClockTop|AlarmModule:alarmModule"                                                                                                       ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                      ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; set_alarm ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ClockTop:ClockTop|TimeCounter:hour_counter"                                                                                                                                       ;
 +------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -562,7 +611,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Jun 15 03:15:08 2025
+    Info: Processing started: Sun Jun 15 03:45:17 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alarm -c alarm
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file sevensegencoder.sv
@@ -580,6 +629,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file tickcou
     Info (12023): Found entity 1: TickCounter
 Info (12021): Found 1 design units, including 1 entities, in source file timecounter.sv
     Info (12023): Found entity 1: TimeCounter
+Warning (10275): Verilog HDL Module Instantiation warning at ClockTop.sv(41): ignored dangling comma in List of Port Connections
 Info (12021): Found 1 design units, including 1 entities, in source file clocktop.sv
     Info (12023): Found entity 1: ClockTop
 Info (12021): Found 1 design units, including 1 entities, in source file clocktop_tb.sv
@@ -591,11 +641,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file setting
 Info (12021): Found 1 design units, including 1 entities, in source file alarmsignal.sv
     Info (12023): Found entity 1: AlarmSignal
 Info (12127): Elaborating entity "ClockPins" for the top level hierarchy
-Warning (10021): Ignored chip_pin synthesis attribute for port "leds" because the synthesis attribute's pin assignment list contains 6 assignment(s), which does not match port width of 7 bit(s)
 Info (12128): Elaborating entity "ClockTop" for hierarchy "ClockTop:ClockTop"
-Warning (10034): Output port "alarm_trigger" at ClockTop.sv(22) has no driver
 Info (12128): Elaborating entity "TickCounter" for hierarchy "ClockTop:ClockTop|TickCounter:tick_counter"
-Warning (10230): Verilog HDL assignment warning at TickCounter.sv(18): truncated value with size 32 to match size of target (25)
+Warning (10230): Verilog HDL assignment warning at TickCounter.sv(19): truncated value with size 32 to match size of target (25)
 Info (12128): Elaborating entity "TimeCounter" for hierarchy "ClockTop:ClockTop|TimeCounter:minute_counter"
 Warning (10230): Verilog HDL assignment warning at TimeCounter.sv(25): truncated value with size 32 to match size of target (7)
 Warning (10230): Verilog HDL assignment warning at TimeCounter.sv(29): truncated value with size 32 to match size of target (5)
@@ -604,6 +652,8 @@ Info (12128): Elaborating entity "TimeCounter" for hierarchy "ClockTop:ClockTop|
 Warning (10230): Verilog HDL assignment warning at TimeCounter.sv(25): truncated value with size 32 to match size of target (6)
 Warning (10230): Verilog HDL assignment warning at TimeCounter.sv(29): truncated value with size 32 to match size of target (5)
 Warning (10230): Verilog HDL assignment warning at TimeCounter.sv(30): truncated value with size 32 to match size of target (5)
+Info (12128): Elaborating entity "AlarmModule" for hierarchy "ClockTop:ClockTop|AlarmModule:alarmModule"
+Info (12128): Elaborating entity "AlarmSignal" for hierarchy "ClockTop:ClockTop|AlarmSignal:alarmSignal"
 Info (12128): Elaborating entity "SevenSegEncoder" for hierarchy "ClockTop:ClockTop|SevenSegEncoder:seg_min_units_enc"
 Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "ClockTop:ClockTop|minutes_unit[6]" is missing source, defaulting to GND
@@ -659,25 +709,17 @@ Info (12133): Instantiated megafunction "ClockTop:ClockTop|TimeCounter:hour_coun
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3am.tdf
     Info (12023): Found entity 1: lpm_divide_3am
-Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "leds[0]" is stuck at VCC
-    Warning (13410): Pin "leds[1]" is stuck at VCC
-    Warning (13410): Pin "leds[2]" is stuck at VCC
-    Warning (13410): Pin "leds[3]" is stuck at VCC
-    Warning (13410): Pin "leds[4]" is stuck at VCC
-    Warning (13410): Pin "leds[5]" is stuck at VCC
-    Warning (13410): Pin "leds[6]" is stuck at VCC
+Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 252 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 283 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 215 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info (21059): Implemented 46 output pins
+    Info (21061): Implemented 235 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 21 warnings
     Info: Peak virtual memory: 4683 megabytes
-    Info: Processing ended: Sun Jun 15 03:15:10 2025
+    Info: Processing ended: Sun Jun 15 03:45:19 2025
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

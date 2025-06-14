@@ -20,7 +20,7 @@ module ClockTop #(
     output logic [6:0] seg_min_units_0, //HEX0
     // Сигнал срабатывания будильника
     output logic alarm_trigger,
-	 output reg [0:6] alarm_signal
+	 output reg [17:0] alarm_signal
 );
 
     // Сигнал тика раз в минуту
@@ -37,7 +37,7 @@ module ClockTop #(
     ) tick_counter (
         .clk(clk),
         .rst(rst),
-        .tick(minute_tick)
+        .tick(minute_tick),
     );
 	 
     // Модуль: счётчик минут (от 0 до 59)
@@ -69,22 +69,20 @@ module ClockTop #(
 	 
 	 //Будильник
 	 
-//	 AlarmModule alarmModule (
-//	 .clk(clk),
-//	 .rst(rst),
-//	 .curr_minutes(minutes),
-//	 .curr_hours(hours),
-//	 .set_alarm(1),
-//	 .alarm_trigger(alarm_trigger),
-//	 .alarm_signal(alarm_signal)
-//	 );
-//	 
-//	 AlarmSignal alarmSignal (
-//	 .clk(clk),
-//	 .rst(rst),
-//	 .alarm_trigger(alarm_trigger),
-//	 .alarm_signal(alarm_signal)
-//	 );
+	 AlarmModule alarmModule (
+	 .clk(clk),
+	 .rst(rst),
+	 .curr_minutes(minutes),
+	 .curr_hours(hours),
+	 .alarm_trigger(alarm_trigger)
+	 );
+	 
+	 AlarmSignal alarmSignal (
+	 .clk(clk),
+	 .rst(rst),
+	 .alarm_trigger(alarm_trigger),
+	 .alarm_signal(alarm_signal)
+	 );
 	 
 	 //Вывод каждой цифры через семисегментник
 	 // Минуты единицы
@@ -108,6 +106,5 @@ module ClockTop #(
 		.seg(seg_hour_tens_3)
 	 );
 	
-		alarm_signal[0:6] <= 7'b1111111;
 
 endmodule
