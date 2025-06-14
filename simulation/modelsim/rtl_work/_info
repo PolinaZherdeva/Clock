@@ -2,148 +2,220 @@ m255
 K3
 13
 cModel Technology
-Z0 dD:\alarm-clock\simulation\modelsim
+Z0 dD:\Clock\simulation\modelsim
 vAlarmModule
 Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
-ISI0PI2;el92L7A6`T1];l2
+I85n?47DSZOX]z=g_g8c_F0
 VSNT@E:LCcMU;J:[WTQM=W1
 S1
-Z2 dD:\alarm-clock\simulation\modelsim
-w1745162720
-8D:/alarm-clock/AlarmModule.sv
-FD:/alarm-clock/AlarmModule.sv
+Z2 dD:\Clock\simulation\modelsim
+Z3 w1748348509
+8D:/Clock/AlarmModule.sv
+FD:/Clock/AlarmModule.sv
 L0 1
-Z3 OV;L;10.1d;51
+Z4 OV;L;10.1d;51
 r1
 31
-Z4 o-sv -work work -O0
-Z5 !s92 -sv -work work +incdir+D:/alarm-clock -O0
+Z5 o-sv -work work -O0
+Z6 !s92 -sv -work work +incdir+D:/Clock -O0
 n@alarm@module
 !i10b 1
-!s100 >0mLW_gD5:RkB0;Fe];gC0
+!s100 go2?YVYX2=aDhNd;m9cOz0
 !s105 AlarmModule_sv_unit
 !s85 0
-!s108 1745163099.239000
-!s107 D:/alarm-clock/AlarmModule.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/alarm-clock|D:/alarm-clock/AlarmModule.sv|
+!s108 1749913401.676000
+!s107 D:/Clock/AlarmModule.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/AlarmModule.sv|
+!s101 -O0
+vClockPins
+R1
+IF:Kj71[@3lD;9MOLO=5z<1
+V?KUi_=kOJmKgJbac1fToe2
+S1
+R2
+w1748346915
+8D:/Clock/ClockPins.sv
+FD:/Clock/ClockPins.sv
+L0 11
+R4
+r1
+31
+R5
+R6
+n@clock@pins
+!i10b 1
+!s100 J]gR6S=[TWY[eTD;5]^;23
+!s105 ClockPins_sv_unit
+!s85 0
+!s108 1749913401.457000
+!s107 D:/Clock/ClockPins.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/ClockPins.sv|
 !s101 -O0
 vClockTop
 R1
-I3k:87hKP3X_3[AdHPd50@3
-V4e5ON1N7nc3zJ5VN=f:en0
+IW>=;?3hz0SY7=^e^Mki=g0
+VSlnNU:U?NkP;D^E:?9bcK3
 S1
 R2
-w1745162304
-8D:/alarm-clock/ClockTop.sv
-FD:/alarm-clock/ClockTop.sv
+w1749913058
+8D:/Clock/ClockTop.sv
+FD:/Clock/ClockTop.sv
 L0 1
-R3
+R4
 r1
 31
-R4
 R5
+R6
 n@clock@top
 !i10b 1
-!s100 VM:0YR<0Z<1TJiXF_NFCX0
+!s100 X54FUhEo?T8XYg=^jkU=L1
 !s105 ClockTop_sv_unit
 !s85 0
-!s108 1745163099.160000
-!s107 D:/alarm-clock/ClockTop.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/alarm-clock|D:/alarm-clock/ClockTop.sv|
+!s108 1749913401.614000
+!s107 D:/Clock/ClockTop.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/ClockTop.sv|
 !s101 -O0
 vClockTop_tb
 R1
 !i10b 1
-!s100 YlcIhQTXDmIT07g8z=JnQ3
-I@ZJhL:LH;bCc1GXZ[4gg20
+!s100 8_H65e^DaA1I41YzS`I@Y0
+ICUBjA3:H=aJOh5HPU@T780
 Vj_jC8MHgWBHieREPL60i]2
 !s105 ClockTop_tb_sv_unit
 S1
 R2
-w1745162591
-8D:/alarm-clock/ClockTop_tb.sv
-FD:/alarm-clock/ClockTop_tb.sv
-L0 3
 R3
+8D:/Clock/ClockTop_tb.sv
+FD:/Clock/ClockTop_tb.sv
+L0 3
+R4
 r1
 !s85 0
 31
-!s108 1745163099.339000
-!s107 D:/alarm-clock/ClockTop_tb.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/alarm-clock|D:/alarm-clock/ClockTop_tb.sv|
+!s108 1749913401.770000
+!s107 D:/Clock/ClockTop_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/ClockTop_tb.sv|
 !s101 -O0
-R4
 R5
+R6
 n@clock@top_tb
+vDigitSplitter
+R1
+IWO[i24<LQ0:0=;78TMK@91
+V[9^61jij6Lb`kM76_?FT03
+S1
+R2
+w1745812583
+8D:/Clock/DigitSplitter.sv
+FD:/Clock/DigitSplitter.sv
+L0 1
+R4
+r1
+31
+R5
+R6
+n@digit@splitter
+!i10b 1
+!s100 HedIkB2o78m0gYLgkn6OK0
+!s105 DigitSplitter_sv_unit
+!s85 0
+!s108 1749913401.410000
+!s107 D:/Clock/DigitSplitter.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/DigitSplitter.sv|
+!s101 -O0
 vSettingsModule
 R1
-I7Ud<<QXcU[Ud1ZFzkaUh10
+IRNgIQM5=XPlihCXn1Z8<h2
 VTCAo07bFA2Vj5A7H<i9;f1
 S1
 R2
-w1745162429
-8D:/alarm-clock/SettingsModule.sv
-FD:/alarm-clock/SettingsModule.sv
-L0 1
 R3
+8D:/Clock/SettingsModule.sv
+FD:/Clock/SettingsModule.sv
+L0 1
+R4
 r1
 31
-R4
 R5
+R6
 n@settings@module
 !i10b 1
-!s100 Se6^FY]0aizLJ`_GT2<5m2
+!s100 d`O2kD4c1jCoa1z05UH:02
 !s105 SettingsModule_sv_unit
 !s85 0
-!s108 1745163099.290000
-!s107 D:/alarm-clock/SettingsModule.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/alarm-clock|D:/alarm-clock/SettingsModule.sv|
+!s108 1749913401.723000
+!s107 D:/Clock/SettingsModule.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/SettingsModule.sv|
+!s101 -O0
+vSevenSegEncoder
+R1
+IhK=^FZdo`0K<HZJASf;FW0
+Vg4FR3`:`03L=]L4>X8N5W1
+S1
+R2
+w1749913310
+8D:/Clock/SevenSegEncoder.sv
+FD:/Clock/SevenSegEncoder.sv
+L0 1
+R4
+r1
+31
+R5
+n@seven@seg@encoder
+R6
+!i10b 1
+!s100 H13ne[@Ulz0DV0E?m;_^B2
+!s105 SevenSegEncoder_sv_unit
+!s85 0
+!s108 1749913401.317000
+!s107 D:/Clock/SevenSegEncoder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/SevenSegEncoder.sv|
 !s101 -O0
 vTickCounter
 R1
-I;Xb`AlR;6mTLaLGl^h?f:2
+INB_ma_Zh0zj_0o[>RNK<a2
 VkQQjkoEcDW?ZZXL3D]?ae3
 S1
 R2
-w1745147848
-8D:/alarm-clock/TickCounter.sv
-FD:/alarm-clock/TickCounter.sv
-L0 1
 R3
+8D:/Clock/TickCounter.sv
+FD:/Clock/TickCounter.sv
+L0 1
+R4
 r1
 31
-R4
-n@tick@counter
 R5
+R6
+n@tick@counter
 !i10b 1
-!s100 X<5f625Bjg]NM_0OiVnzE0
+!s100 OgF:lCN@U_=]o<z@=h5:a1
 !s105 TickCounter_sv_unit
 !s85 0
-!s108 1745163099.061000
-!s107 D:/alarm-clock/TickCounter.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/alarm-clock|D:/alarm-clock/TickCounter.sv|
+!s108 1749913401.520000
+!s107 D:/Clock/TickCounter.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/TickCounter.sv|
 !s101 -O0
 vTimeCounter
 R1
-I]`n]12SZA4CQ:?7B3DD1a0
+IRMDc[KNVa2We95A=<h4Jl2
 Vz493Z`[dIKZ[7O32l6?:A0
 S1
 R2
-w1745160611
-8D:/alarm-clock/TimeCounter.sv
-FD:/alarm-clock/TimeCounter.sv
-L0 1
 R3
+8D:/Clock/TimeCounter.sv
+FD:/Clock/TimeCounter.sv
+L0 1
+R4
 r1
 31
-R4
 R5
+R6
 n@time@counter
 !i10b 1
-!s100 ^N3<z[4XzmoMe>;9hCWD_3
+!s100 4Y9n0_H82YZkN6ha?nW;d3
 !s105 TimeCounter_sv_unit
 !s85 0
-!s108 1745163099.110000
-!s107 D:/alarm-clock/TimeCounter.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/alarm-clock|D:/alarm-clock/TimeCounter.sv|
+!s108 1749913401.567000
+!s107 D:/Clock/TimeCounter.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+D:/Clock|D:/Clock/TimeCounter.sv|
 !s101 -O0

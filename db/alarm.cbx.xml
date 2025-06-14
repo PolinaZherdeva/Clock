@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="alarm">
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|DigitSplitter:hour_splt|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|DigitSplitter:minute_splt|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|DigitSplitter:minute_splt|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

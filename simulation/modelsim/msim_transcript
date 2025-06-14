@@ -10,42 +10,60 @@
 # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/TickCounter.sv}
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/SevenSegEncoder.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module SevenSegEncoder
+# 
+# Top level modules:
+# 	SevenSegEncoder
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/DigitSplitter.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module DigitSplitter
+# 
+# Top level modules:
+# 	DigitSplitter
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockPins.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ClockPins
+# 
+# Top level modules:
+# 	ClockPins
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/TickCounter.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module TickCounter
-# ** Warning: D:/alarm-clock/TickCounter.sv(2): (vlog-2597) '3000000000' is being treated as 32-bit signed integer and will overflow.
+# ** Warning: D:/Clock/TickCounter.sv(2): (vlog-2597) '3000000000' is being treated as 32-bit signed integer and will overflow.
 # 
 # 
 # Top level modules:
 # 	TickCounter
-# vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/TimeCounter.sv}
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/TimeCounter.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module TimeCounter
 # 
 # Top level modules:
 # 	TimeCounter
-# vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/ClockTop.sv}
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockTop.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module ClockTop
-# ** Warning: D:/alarm-clock/ClockTop.sv(2): (vlog-2597) '3000000000' is being treated as 32-bit signed integer and will overflow.
+# ** Warning: D:/Clock/ClockTop.sv(2): (vlog-2597) '3000000000' is being treated as 32-bit signed integer and will overflow.
 # 
 # 
 # Top level modules:
 # 	ClockTop
-# vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/AlarmModule.sv}
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/AlarmModule.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module AlarmModule
 # 
 # Top level modules:
 # 	AlarmModule
-# vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/SettingsModule.sv}
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/SettingsModule.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module SettingsModule
 # 
 # Top level modules:
 # 	SettingsModule
 # 
-# vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/ClockTop_tb.sv}
+# vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockTop_tb.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module ClockTop_tb
 # 
@@ -61,11 +79,51 @@
 # Loading work.TimeCounter
 # Loading work.SettingsModule
 # Loading work.AlarmModule
-# ** Warning: (vsim-3017) D:/alarm-clock/ClockTop.sv(54): [TFMPC] - Too few port connections. Expected 5, found 4.
+# Loading work.DigitSplitter
+# Loading work.SevenSegEncoder
+# ** Warning: (vsim-3017) D:/Clock/ClockTop_tb.sv(21): [TFMPC] - Too few port connections. Expected 9, found 5.
+# 
+#         Region: /ClockTop_tb/dut
+# ** Warning: (vsim-3722) D:/Clock/ClockTop_tb.sv(21): [TFMPC] - Missing connection for port 'seg_hour_tens_3'.
+# 
+# ** Warning: (vsim-3722) D:/Clock/ClockTop_tb.sv(21): [TFMPC] - Missing connection for port 'seg_hour_units_2'.
+# 
+# ** Warning: (vsim-3722) D:/Clock/ClockTop_tb.sv(21): [TFMPC] - Missing connection for port 'seg_min_tens_1'.
+# 
+# ** Warning: (vsim-3722) D:/Clock/ClockTop_tb.sv(21): [TFMPC] - Missing connection for port 'seg_min_units_0'.
+# 
+# ** Warning: (vsim-3017) D:/Clock/ClockTop.sv(58): [TFMPC] - Too few port connections. Expected 5, found 4.
 # 
 #         Region: /ClockTop_tb/dut/hour_counter
-# ** Warning: (vsim-3722) D:/alarm-clock/ClockTop.sv(54): [TFMPC] - Missing connection for port 'rollover'.
+# ** Warning: (vsim-3722) D:/Clock/ClockTop.sv(58): [TFMPC] - Missing connection for port 'rollover'.
 # 
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(86): [PCDPC] - Port size (6 or 6) does not match connection size (7) for port 'value'. The port definition is at: D:/Clock/DigitSplitter.sv(7).
+# 
+#         Region: /ClockTop_tb/dut/minute_splt
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(86): [PCDPC] - Port size (3 or 3) does not match connection size (1) for port 'tens'. The port definition is at: D:/Clock/DigitSplitter.sv(8).
+# 
+#         Region: /ClockTop_tb/dut/minute_splt
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(86): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'units'. The port definition is at: D:/Clock/DigitSplitter.sv(9).
+# 
+#         Region: /ClockTop_tb/dut/minute_splt
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(93): [PCDPC] - Port size (3 or 3) does not match connection size (1) for port 'tens'. The port definition is at: D:/Clock/DigitSplitter.sv(8).
+# 
+#         Region: /ClockTop_tb/dut/hour_splt
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(93): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'units'. The port definition is at: D:/Clock/DigitSplitter.sv(9).
+# 
+#         Region: /ClockTop_tb/dut/hour_splt
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(100): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'digit'. The port definition is at: D:/Clock/SevenSegEncoder.sv(2).
+# 
+#         Region: /ClockTop_tb/dut/seg_min_units_enc
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(105): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'digit'. The port definition is at: D:/Clock/SevenSegEncoder.sv(2).
+# 
+#         Region: /ClockTop_tb/dut/seg_min_tens_enc
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(110): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'digit'. The port definition is at: D:/Clock/SevenSegEncoder.sv(2).
+# 
+#         Region: /ClockTop_tb/dut/seg_hour_units_enc
+# ** Warning: (vsim-3015) D:/Clock/ClockTop.sv(115): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'digit'. The port definition is at: D:/Clock/SevenSegEncoder.sv(2).
+# 
+#         Region: /ClockTop_tb/dut/seg_hour_tens_enc
 # 
 # add wave *
 # view structure
@@ -476,6 +534,6 @@
 # Time: 4005000 ns | Minutes: 19 | Hours: 3 | Alarm: 0
 # Time: 4015000 ns | Minutes: 19 | Hours: 3 | Alarm: 0
 # FINISHED
-# Break in Module ClockTop_tb at D:/alarm-clock/ClockTop_tb.sv line 38
-# Simulation Breakpoint: Break in Module ClockTop_tb at D:/alarm-clock/ClockTop_tb.sv line 38
-# MACRO ./alarm_run_msim_rtl_verilog.do PAUSED at line 21
+# Break in Module ClockTop_tb at D:/Clock/ClockTop_tb.sv line 38
+# Simulation Breakpoint: Break in Module ClockTop_tb at D:/Clock/ClockTop_tb.sv line 38
+# MACRO ./alarm_run_msim_rtl_verilog.do PAUSED at line 24

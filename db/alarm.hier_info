@@ -1,4 +1,37 @@
-|ClockTop
+|ClockPins
+seg_display_0[6] <= ClockTop:ClockTop.seg_min_units_0
+seg_display_0[5] <= ClockTop:ClockTop.seg_min_units_0
+seg_display_0[4] <= ClockTop:ClockTop.seg_min_units_0
+seg_display_0[3] <= ClockTop:ClockTop.seg_min_units_0
+seg_display_0[2] <= ClockTop:ClockTop.seg_min_units_0
+seg_display_0[1] <= ClockTop:ClockTop.seg_min_units_0
+seg_display_0[0] <= ClockTop:ClockTop.seg_min_units_0
+seg_display_1[6] <= ClockTop:ClockTop.seg_min_tens_1
+seg_display_1[5] <= ClockTop:ClockTop.seg_min_tens_1
+seg_display_1[4] <= ClockTop:ClockTop.seg_min_tens_1
+seg_display_1[3] <= ClockTop:ClockTop.seg_min_tens_1
+seg_display_1[2] <= ClockTop:ClockTop.seg_min_tens_1
+seg_display_1[1] <= ClockTop:ClockTop.seg_min_tens_1
+seg_display_1[0] <= ClockTop:ClockTop.seg_min_tens_1
+seg_display_2[6] <= ClockTop:ClockTop.seg_hour_units_2
+seg_display_2[5] <= ClockTop:ClockTop.seg_hour_units_2
+seg_display_2[4] <= ClockTop:ClockTop.seg_hour_units_2
+seg_display_2[3] <= ClockTop:ClockTop.seg_hour_units_2
+seg_display_2[2] <= ClockTop:ClockTop.seg_hour_units_2
+seg_display_2[1] <= ClockTop:ClockTop.seg_hour_units_2
+seg_display_2[0] <= ClockTop:ClockTop.seg_hour_units_2
+seg_display_3[6] <= ClockTop:ClockTop.seg_hour_tens_3
+seg_display_3[5] <= ClockTop:ClockTop.seg_hour_tens_3
+seg_display_3[4] <= ClockTop:ClockTop.seg_hour_tens_3
+seg_display_3[3] <= ClockTop:ClockTop.seg_hour_tens_3
+seg_display_3[2] <= ClockTop:ClockTop.seg_hour_tens_3
+seg_display_3[1] <= ClockTop:ClockTop.seg_hour_tens_3
+seg_display_3[0] <= ClockTop:ClockTop.seg_hour_tens_3
+rst => comb.DATAIN
+clk => comb.DATAIN
+
+
+|ClockPins|ClockTop:ClockTop
 clk => clk.IN5
 rst => rst.IN5
 minutes[0] <= minutes[0].DB_MAX_OUTPUT_PORT_TYPE
@@ -14,10 +47,38 @@ hours[2] <= hours[2].DB_MAX_OUTPUT_PORT_TYPE
 hours[3] <= hours[3].DB_MAX_OUTPUT_PORT_TYPE
 hours[4] <= hours[4].DB_MAX_OUTPUT_PORT_TYPE
 hours[5] <= hours[5].DB_MAX_OUTPUT_PORT_TYPE
+seg_hour_tens_3[0] <= SevenSegEncoder:seg_hour_tens_enc.seg
+seg_hour_tens_3[1] <= SevenSegEncoder:seg_hour_tens_enc.seg
+seg_hour_tens_3[2] <= SevenSegEncoder:seg_hour_tens_enc.seg
+seg_hour_tens_3[3] <= SevenSegEncoder:seg_hour_tens_enc.seg
+seg_hour_tens_3[4] <= SevenSegEncoder:seg_hour_tens_enc.seg
+seg_hour_tens_3[5] <= SevenSegEncoder:seg_hour_tens_enc.seg
+seg_hour_tens_3[6] <= SevenSegEncoder:seg_hour_tens_enc.seg
+seg_hour_units_2[0] <= SevenSegEncoder:seg_hour_units_enc.seg
+seg_hour_units_2[1] <= SevenSegEncoder:seg_hour_units_enc.seg
+seg_hour_units_2[2] <= SevenSegEncoder:seg_hour_units_enc.seg
+seg_hour_units_2[3] <= SevenSegEncoder:seg_hour_units_enc.seg
+seg_hour_units_2[4] <= SevenSegEncoder:seg_hour_units_enc.seg
+seg_hour_units_2[5] <= SevenSegEncoder:seg_hour_units_enc.seg
+seg_hour_units_2[6] <= SevenSegEncoder:seg_hour_units_enc.seg
+seg_min_tens_1[0] <= SevenSegEncoder:seg_min_tens_enc.seg
+seg_min_tens_1[1] <= SevenSegEncoder:seg_min_tens_enc.seg
+seg_min_tens_1[2] <= SevenSegEncoder:seg_min_tens_enc.seg
+seg_min_tens_1[3] <= SevenSegEncoder:seg_min_tens_enc.seg
+seg_min_tens_1[4] <= SevenSegEncoder:seg_min_tens_enc.seg
+seg_min_tens_1[5] <= SevenSegEncoder:seg_min_tens_enc.seg
+seg_min_tens_1[6] <= SevenSegEncoder:seg_min_tens_enc.seg
+seg_min_units_0[0] <= SevenSegEncoder:seg_min_units_enc.seg
+seg_min_units_0[1] <= SevenSegEncoder:seg_min_units_enc.seg
+seg_min_units_0[2] <= SevenSegEncoder:seg_min_units_enc.seg
+seg_min_units_0[3] <= SevenSegEncoder:seg_min_units_enc.seg
+seg_min_units_0[4] <= SevenSegEncoder:seg_min_units_enc.seg
+seg_min_units_0[5] <= SevenSegEncoder:seg_min_units_enc.seg
+seg_min_units_0[6] <= SevenSegEncoder:seg_min_units_enc.seg
 alarm_trigger <= AlarmModule:alarm.alarm_trigger
 
 
-|ClockTop|TickCounter:tick_counter
+|ClockPins|ClockTop:ClockTop|TickCounter:tick_counter
 clk => counter[0].CLK
 clk => counter[1].CLK
 clk => counter[2].CLK
@@ -43,22 +104,6 @@ clk => counter[21].CLK
 clk => counter[22].CLK
 clk => counter[23].CLK
 clk => counter[24].CLK
-clk => counter[25].CLK
-clk => counter[26].CLK
-clk => counter[27].CLK
-clk => counter[28].CLK
-clk => counter[29].CLK
-clk => counter[30].CLK
-clk => counter[31].CLK
-clk => counter[32].CLK
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
 rst => counter.OUTPUTSELECT
 rst => counter.OUTPUTSELECT
 rst => counter.OUTPUTSELECT
@@ -87,7 +132,7 @@ rst => counter.OUTPUTSELECT
 tick <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ClockTop|TimeCounter:minute_counter
+|ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter
 clk => counter[0]~reg0.CLK
 clk => counter[1]~reg0.CLK
 clk => counter[2]~reg0.CLK
@@ -120,7 +165,7 @@ counter[6] <= counter[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 rollover <= rollover.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ClockTop|TimeCounter:hour_counter
+|ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter
 clk => counter[0]~reg0.CLK
 clk => counter[1]~reg0.CLK
 clk => counter[2]~reg0.CLK
@@ -149,7 +194,7 @@ counter[5] <= counter[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 rollover <= rollover.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ClockTop|SettingsModule:settings
+|ClockPins|ClockTop:ClockTop|SettingsModule:settings
 clk => alarm_set_done.CLK
 rst => alarm_set_done.ACLR
 set_alarm <= alarm_set_done.DB_MAX_OUTPUT_PORT_TYPE
@@ -168,7 +213,7 @@ set_hours[4] <= <GND>
 set_hours[5] <= <GND>
 
 
-|ClockTop|AlarmModule:alarm
+|ClockPins|ClockTop:ClockTop|AlarmModule:alarm
 clk => alarm_hours[0].CLK
 clk => alarm_hours[1].CLK
 clk => alarm_hours[2].CLK
@@ -223,5 +268,105 @@ set_hours[3] => alarm_hours[3].DATAIN
 set_hours[4] => alarm_hours[4].DATAIN
 set_hours[5] => alarm_hours[5].DATAIN
 alarm_trigger <= alarm_trigger.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockPins|ClockTop:ClockTop|DigitSplitter:minute_splt
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+units[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+units[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+units[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+units[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockPins|ClockTop:ClockTop|DigitSplitter:hour_splt
+value[0] => Div0.IN9
+value[0] => Mod0.IN9
+value[1] => Div0.IN8
+value[1] => Mod0.IN8
+value[2] => Div0.IN7
+value[2] => Mod0.IN7
+value[3] => Div0.IN6
+value[3] => Mod0.IN6
+value[4] => Div0.IN5
+value[4] => Mod0.IN5
+value[5] => Div0.IN4
+value[5] => Mod0.IN4
+tens[0] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= Div0.DB_MAX_OUTPUT_PORT_TYPE
+units[0] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+units[1] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+units[2] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+units[3] <= Mod0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_min_units_enc
+digit[0] => Decoder0.IN3
+digit[1] => Decoder0.IN2
+digit[2] => Decoder0.IN1
+digit[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_min_tens_enc
+digit[0] => Decoder0.IN3
+digit[1] => Decoder0.IN2
+digit[2] => Decoder0.IN1
+digit[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_hour_units_enc
+digit[0] => Decoder0.IN3
+digit[1] => Decoder0.IN2
+digit[2] => Decoder0.IN1
+digit[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc
+digit[0] => Decoder0.IN3
+digit[1] => Decoder0.IN2
+digit[2] => Decoder0.IN1
+digit[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 

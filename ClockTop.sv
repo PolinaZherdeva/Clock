@@ -1,5 +1,5 @@
 module ClockTop #(
-    parameter TICK_COUNT_MAX = 3000000000
+    parameter TICK_COUNT_MAX = 10000000
 )( 
     input  logic clk, // 50 МГц
     input  logic rst,
@@ -8,6 +8,10 @@ module ClockTop #(
     output logic [$clog2(60):0] minutes,
     output logic [$clog2(24):0] hours,
 
+	 output logic [6:0] seg_hour_tens_3, //HEX3
+    output logic [6:0] seg_hour_units_2, //HEX2
+    output logic [6:0] seg_min_tens_1, //HEX1
+    output logic [6:0] seg_min_units_0, //HEX0
     // Сигнал срабатывания будильника
     output logic alarm_trigger
 );
@@ -73,5 +77,41 @@ module ClockTop #(
         .set_hours(set_hours),
         .alarm_trigger(alarm_trigger)
     );
+	 
+	  // Делим минуты на десятки и единицы
+	 DigitSplitter minute_splt (
+		.value(minutes),
+		.tens(min_tens),
+		.units(min_units)
+	 );
+	 
+	 //Делим часы на десятки и единицы
+	 DigitSplitter hour_splt (
+		.value(hours),
+		.tens(hour_tens),
+		.units(hour_units)
+	 );
+	 
+	 //Вывод каждой цифры через семисегментник
+	 // Минуты единицы
+	 SevenSegEncoder seg_min_units_enc ( 
+		.digit(min_units),
+		.seg(seg_min_units_0)
+	 );
+	 // десятки
+	 SevenSegEncoder seg_min_tens_enc (
+		.digit(min_tens),
+		.seg(seg_min_tens_1)
+	 );
+	 // Часы единицы
+	 SevenSegEncoder seg_hour_units_enc (
+		.digit(hour_units),
+		.seg(seg_hour_units_2)
+	 );
+	 // Десятки
+	 SevenSegEncoder seg_hour_tens_enc (
+		.digit(hour_units),
+		.seg(seg_hour_tens_3)
+	 );
 
 endmodule

@@ -5,13 +5,14 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/TickCounter.sv}
-vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/TimeCounter.sv}
-vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/ClockTop.sv}
-vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/AlarmModule.sv}
-vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/SettingsModule.sv}
+vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockPins.sv}
+vlog -sv -work work +incdir+D:/Clock {D:/Clock/TickCounter.sv}
+vlog -sv -work work +incdir+D:/Clock {D:/Clock/TimeCounter.sv}
+vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockTop.sv}
+vlog -sv -work work +incdir+D:/Clock {D:/Clock/AlarmModule.sv}
+vlog -sv -work work +incdir+D:/Clock {D:/Clock/SettingsModule.sv}
 
-vlog -sv -work work +incdir+D:/alarm-clock {D:/alarm-clock/ClockTop_tb.sv}
+vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockTop_tb.sv}
 
 vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ClockTop_tb
 
