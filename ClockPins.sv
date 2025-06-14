@@ -13,6 +13,7 @@ module ClockPins(
 (* altera_atribute = `v1_2, chip_pin = `pins_hex1 *) output [6:0]  seg_display_1,
 (* altera_atribute = `v3_3, chip_pin = `pins_hex2 *) output [6:0]  seg_display_2,
 (* altera_atribute = `v3_3, chip_pin = `pins_hex3 *) output [6:0]  seg_display_3, 
+(* chip_pin = "L7, K6, D8, E9, A5, B6" *) output[6:0] leds,
 (* altera_atribute = "-name IO_STANDARD\"1.2-V\"", chip_pin = "P11" *) input rst,
 (* chip_pin = "H12" *) input clk
 );
@@ -23,7 +24,9 @@ ClockTop ClockTop(
 .seg_min_units_0(seg_display_0),
 .seg_min_tens_1(seg_display_1),
 .seg_hour_units_2(seg_display_2),
-.seg_hour_tens_3(seg_display_3)
+.seg_hour_tens_3(seg_display_3),
+.alarm_signal(leds)
+
 );
 
 

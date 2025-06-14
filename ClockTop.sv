@@ -5,15 +5,22 @@ module ClockTop #(
     input  logic rst,
 
     // Текущее время
-    output logic [$clog2(60):0] minutes,
+	 output logic [$clog2(60):0] minutes,
     output logic [$clog2(24):0] hours,
-
+	 
+    output logic [$clog2(60):0] minutes_unit, 
+	 output logic [$clog2(60):0] minutes_ten, 
+	
+    output logic [$clog2(24):0] hours_unit,
+    output logic [$clog2(24):0] hours_ten,
+	 
 	 output logic [6:0] seg_hour_tens_3, //HEX3
     output logic [6:0] seg_hour_units_2, //HEX2
     output logic [6:0] seg_min_tens_1, //HEX1
     output logic [6:0] seg_min_units_0, //HEX0
     // Сигнал срабатывания будильника
-    output logic alarm_trigger
+    output logic alarm_trigger,
+	 output reg [0:6] alarm_signal
 );
 
     // Сигнал тика раз в минуту
@@ -22,11 +29,8 @@ module ClockTop #(
     // Тик при переполнении минут (раз в час)
     logic hour_tick;
 
-    // Сигналы для установки будильника, которые будут генерироваться в SettingsModule
-    logic set_alarm;
-    logic [$clog2(60):0] set_minutes;
-    logic [$clog2(24):0] set_hours;
-
+	
+	
     // Модуль: счётчик тиков — 1 тик в минуту
     TickCounter #(
         .TICK_COUNT_MAX(TICK_COUNT_MAX)
@@ -35,7 +39,7 @@ module ClockTop #(
         .rst(rst),
         .tick(minute_tick)
     );
-
+	 
     // Модуль: счётчик минут (от 0 до 59)
     TimeCounter #(
         .MAX_COUNT(60)
@@ -43,75 +47,67 @@ module ClockTop #(
         .clk(clk),
         .rst(rst),
         .inc_tick(minute_tick),
-        .counter(minutes),
+		  .counter(minutes),
+        .counter_out_unit(minutes_unit),
+		  .counter_out_ten(minutes_ten),
         .rollover(hour_tick)
     );
 
-    // Модуль: счётчик часов (от 0 до 23)
+
+	// Модуль: счётчик часов (от 0 до 23)
     TimeCounter #(
         .MAX_COUNT(24)
     ) hour_counter (
         .clk(clk),
         .rst(rst),
+		  .counter(hours),
         .inc_tick(hour_tick),
-        .counter(hours)
+        .counter_out_unit(hours_unit),
+		  .counter_out_ten(hours_ten)
     );
 
-    // Модуль: настройки будильника (встроенный)
-    SettingsModule settings (
-        .clk(clk),
-        .rst(rst),
-        .set_alarm(set_alarm),
-        .set_minutes(set_minutes),
-        .set_hours(set_hours)
-    );
-
-    // Модуль: будильник
-    AlarmModule alarm (
-        .clk(clk),
-        .rst(rst),
-        .curr_minutes(minutes),
-        .curr_hours(hours),
-        .set_alarm(set_alarm),
-        .set_minutes(set_minutes),
-        .set_hours(set_hours),
-        .alarm_trigger(alarm_trigger)
-    );
 	 
-	  // Делим минуты на десятки и единицы
-	 DigitSplitter minute_splt (
-		.value(minutes),
-		.tens(min_tens),
-		.units(min_units)
-	 );
+	 //Будильник
 	 
-	 //Делим часы на десятки и единицы
-	 DigitSplitter hour_splt (
-		.value(hours),
-		.tens(hour_tens),
-		.units(hour_units)
-	 );
+//	 AlarmModule alarmModule (
+//	 .clk(clk),
+//	 .rst(rst),
+//	 .curr_minutes(minutes),
+//	 .curr_hours(hours),
+//	 .set_alarm(1),
+//	 .alarm_trigger(alarm_trigger),
+//	 .alarm_signal(alarm_signal)
+//	 );
+//	 
+//	 AlarmSignal alarmSignal (
+//	 .clk(clk),
+//	 .rst(rst),
+//	 .alarm_trigger(alarm_trigger),
+//	 .alarm_signal(alarm_signal)
+//	 );
 	 
 	 //Вывод каждой цифры через семисегментник
 	 // Минуты единицы
 	 SevenSegEncoder seg_min_units_enc ( 
-		.digit(min_units),
+		.digit(minutes_unit),
 		.seg(seg_min_units_0)
 	 );
-	 // десятки
+	 // Минуты десятки
 	 SevenSegEncoder seg_min_tens_enc (
-		.digit(min_tens),
+		.digit(minutes_ten),
 		.seg(seg_min_tens_1)
 	 );
 	 // Часы единицы
 	 SevenSegEncoder seg_hour_units_enc (
-		.digit(hour_units),
+		.digit(hours_unit),
 		.seg(seg_hour_units_2)
 	 );
-	 // Десятки
+	 // Часы десятки
 	 SevenSegEncoder seg_hour_tens_enc (
-		.digit(hour_units),
+		.digit(hours_ten),
 		.seg(seg_hour_tens_3)
 	 );
+	
+		alarm_signal[0:6] <= 7'b1111111;
 
 endmodule

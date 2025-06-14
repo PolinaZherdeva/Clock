@@ -113,7 +113,7 @@ VCCIO3B                      : AA10      : power  :                   : 2.5V    
 VCCPD3B4A                    : AA11      : power  :                   : 2.5V    :           :                
 NC                           : AA12      :        :                   :         :           :                
 VCCPD3B4A                    : AA13      : power  :                   : 2.5V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AA14      :        :                   :         : 4A        :                
+leds[4]                      : AA14      : output : 2.5 V             :         : 4A        : N              
 GND                          : AA15      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AA16      :        :                   :         : 4A        :                
 VCCPD3B4A                    : AA17      : power  :                   : 2.5V    :           :                
@@ -277,7 +277,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B20       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : B21       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B22       :        :                   :         : 7A        :                
 VCCIO7A                      : B23       : power  :                   : 2.5V    : 7A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B24       :        :                   :         : 7A        :                
+leds[0]                      : B24       : output : 2.5 V             :         : 7A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : B25       :        :                   :         : 6A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B26       :        :                   :         : 6A        :                
 GND                          : C1        : gnd    :                   :         :           :                
@@ -298,7 +298,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : C15       :        :                   :      
 VCCIO7A                      : C16       : power  :                   : 2.5V    : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C17       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C18       :        :                   :         : 7A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C19       :        :                   :         : 7A        :                
+leds[1]                      : C19       : output : 2.5 V             :         : 7A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : C20       :        :                   :         : 7A        :                
 GND                          : C21       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C22       :        :                   :         : 7A        :                
@@ -379,7 +379,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : F18       :        :                   :      
 VCCPD7A8A                    : F19       : power  :                   : 2.5V    :           :                
 GND                          : F20       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F21       :        :                   :         : 6A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F22       :        :                   :         : 6A        :                
+leds[5]                      : F22       : output : 2.5 V             :         : 6A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : F23       :        :                   :         : 6A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F24       :        :                   :         : 6A        :                
 VCCIO6A                      : F25       : power  :                   : 2.5V    : 6A        :                
@@ -654,7 +654,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : U7        :        :                   :      
 VCCIO3B                      : U8        : power  :                   : 2.5V    : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U9        :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U10       :        :                   :         : 3B        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : U11       :        :                   :         : 3B        :                
+leds[6]                      : U11       : output : 2.5 V             :         : 3B        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : U12       :        :                   :         : 4A        :                
 GND                          : U13       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U14       :        :                   :         : 4A        :                
@@ -735,8 +735,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : Y10       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y11       :        :                   :         : 3B        :                
 GND                          : Y12       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y13       :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y14       :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y15       :        :                   :         : 4A        :                
+leds[2]                      : Y14       : output : 2.5 V             :         : 4A        : N              
+leds[3]                      : Y15       : output : 2.5 V             :         : 4A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y16       :        :                   :         : 4A        :                
 VCCIO4A                      : Y17       : power  :                   : 2.5V    : 4A        :                
 seg_display_0[0]             : Y18       : output : 2.5 V             :         : 4A        : Y              

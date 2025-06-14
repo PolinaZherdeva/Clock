@@ -6,13 +6,10 @@ vlib rtl_work
 vmap work rtl_work
 
 vlog -sv -work work +incdir+D:/Clock {D:/Clock/SevenSegEncoder.sv}
-vlog -sv -work work +incdir+D:/Clock {D:/Clock/DigitSplitter.sv}
 vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockPins.sv}
 vlog -sv -work work +incdir+D:/Clock {D:/Clock/TickCounter.sv}
 vlog -sv -work work +incdir+D:/Clock {D:/Clock/TimeCounter.sv}
 vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockTop.sv}
-vlog -sv -work work +incdir+D:/Clock {D:/Clock/AlarmModule.sv}
-vlog -sv -work work +incdir+D:/Clock {D:/Clock/SettingsModule.sv}
 
 vlog -sv -work work +incdir+D:/Clock {D:/Clock/ClockTop_tb.sv}
 
