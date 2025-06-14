@@ -1,5 +1,5 @@
 Flow report for alarm
-Sat Jun 14 22:11:53 2025
+Sun Jun 15 00:13:06 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +-------------------------------------+-------------------------------------------------+
-; Flow Status                         ; Successful - Sat Jun 14 22:11:53 2025           ;
+; Flow Status                         ; Successful - Sun Jun 15 00:13:06 2025           ;
 ; Quartus II 64-Bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                       ; alarm                                           ;
 ; Top-level Entity Name               ; ClockPins                                       ;
@@ -69,34 +69,34 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/14/2025 22:11:01 ;
+; Start date & time ; 06/15/2025 00:12:02 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; alarm               ;
 +-------------------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                     ;
-+--------------------------------------+--------------------------------+---------------+-------------+----------------+
-; Assignment Name                      ; Value                          ; Default Value ; Entity Name ; Section Id     ;
-+--------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 10995770589188.174991386108760 ; --            ; --          ; --             ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                             ; --            ; --          ; ClockTop_tb    ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ClockTop_tb                    ; --            ; --          ; eda_simulation ;
-; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                           ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --             ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                ; --            ; --          ; eda_simulation ;
-; EDA_TEST_BENCH_FILE                  ; ClockTop_tb.sv                 ; --            ; --          ; ClockTop_tb    ;
-; EDA_TEST_BENCH_MODULE_NAME           ; ClockTop_tb                    ; --            ; --          ; ClockTop_tb    ;
-; EDA_TEST_BENCH_NAME                  ; ClockTop_tb                    ; --            ; --          ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                             ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                              ; --            ; --          ; --             ;
-; PARTITION_COLOR                      ; 16764057                       ; --            ; ClockPins   ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING          ; --            ; ClockPins   ; Top            ;
-; PARTITION_NETLIST_TYPE               ; SOURCE                         ; --            ; ClockPins   ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                   ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                     ; ClockPins                      ; alarm         ; --          ; --             ;
-+--------------------------------------+--------------------------------+---------------+-------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                      ;
++--------------------------------------+---------------------------------+---------------+-------------+----------------+
+; Assignment Name                      ; Value                           ; Default Value ; Entity Name ; Section Id     ;
++--------------------------------------+---------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 260109152088224.174992112213868 ; --            ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                              ; --            ; --          ; ClockTop_tb    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ClockTop_tb                     ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                            ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)          ; <None>        ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                 ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; ClockTop_tb.sv                  ; --            ; --          ; ClockTop_tb    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ClockTop_tb                     ; --            ; --          ; ClockTop_tb    ;
+; EDA_TEST_BENCH_NAME                  ; ClockTop_tb                     ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                              ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                               ; --            ; --          ; --             ;
+; PARTITION_COLOR                      ; 16764057                        ; --            ; ClockPins   ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING           ; --            ; ClockPins   ; Top            ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                          ; --            ; ClockPins   ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                    ; --            ; --          ; --             ;
+; TOP_LEVEL_ENTITY                     ; ClockPins                       ; alarm         ; --          ; --             ;
++--------------------------------------+---------------------------------+---------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -104,12 +104,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 4682 MB             ; 00:00:01                           ;
-; Fitter                    ; 00:00:32     ; 1.8                     ; 6642 MB             ; 00:00:53                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 4753 MB             ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:08     ; 1.0                     ; 5288 MB             ; 00:00:08                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4586 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:48     ; --                      ; --                  ; 00:01:09                           ;
+; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 4642 MB             ; 00:00:01                           ;
+; Fitter                    ; 00:00:39     ; 1.0                     ; 5861 MB             ; 00:00:30                           ;
+; Assembler                 ; 00:00:09     ; 1.0                     ; 4746 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 5172 MB             ; 00:00:07                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4575 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:59     ; --                      ; --                  ; 00:00:45                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -118,11 +118,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-T7JBLPV  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-T7JBLPV  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-T7JBLPV  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-T7JBLPV  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-T7JBLPV  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; DESKTOP-PKVTPUJ  ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; DESKTOP-PKVTPUJ  ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; DESKTOP-PKVTPUJ  ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; DESKTOP-PKVTPUJ  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-PKVTPUJ  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
