@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Sat Jun 14 22:11:02 2025
+Analysis & Synthesis Status : Successful - Sun Jun 15 03:15:10 2025
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : alarm
 Top-level Entity Name : ClockPins
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 38
-Total pins : 30
+Total pins : 37
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

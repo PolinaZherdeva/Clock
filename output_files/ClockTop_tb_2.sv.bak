@@ -1,0 +1,71 @@
+`timescale 1ns/1ps
+
+module ClockTop_tb_2;
+
+    // Параметры
+    parameter TICK_COUNT_MAX = 10; // Уменьшен для ускорения симуляции
+
+    // Сигналы
+    logic clk;
+    logic rst;
+    logic [$clog2(60):0] minutes;
+    logic [$clog2(24):0] hours;
+
+    // Не используем сегменты и alarm
+    logic [6:0] seg_hour_tens_3;
+    logic [6:0] seg_hour_units_2;
+    logic [6:0] seg_min_tens_1;
+    logic [6:0] seg_min_units_0;
+    logic alarm_trigger;
+
+    // Instantiate DUT
+    ClockTop #(
+        .TICK_COUNT_MAX(TICK_COUNT_MAX)
+    ) dut (
+        .clk(clk),
+        .rst(rst),
+        .minutes(minutes),
+        .hours(hours),
+        .seg_hour_tens_3(seg_hour_tens_3),
+        .seg_hour_units_2(seg_hour_units_2),
+        .seg_min_tens_1(seg_min_tens_1),
+        .seg_min_units_0(seg_min_units_0),
+        .alarm_trigger(alarm_trigger)
+    );
+
+    // Генерация тактового сигнала 50 МГц (20 нс период)
+    always #10 clk = ~clk;
+
+    // Тест
+    initial begin
+        $display("=== ClockTop Testbench ===");
+        clk = 0;
+        rst = 1;
+
+        // Сброс
+        #50;
+        rst = 0;
+
+        // Ждём 3 минуты
+        repeat (3 * TICK_COUNT_MAX) @(posedge clk);
+
+        $display("Minutes = %0d, Hours = %0d", minutes, hours);
+        assert(minutes == 3) else $fatal("Ошибка: минуты должны быть 3!");
+        assert(hours == 0) else $fatal("Ошибка: часы должны быть 0!");
+
+        // Ждём до 60 минут → rollover часов
+        repeat ((60 - 3) * TICK_COUNT_MAX) @(posedge clk);
+        $display("Minutes = %0d, Hours = %0d", minutes, hours);
+        assert(minutes == 0) else $fatal("Ошибка: минуты должны быть 0 (после переполнения)!");
+        assert(hours == 1) else $fatal("Ошибка: часы должны быть 1!");
+
+        // Ждём ещё 23 часа → rollover суток
+        repeat (23 * 60 * TICK_COUNT_MAX) @(posedge clk);
+        $display("Minutes = %0d, Hours = %0d", minutes, hours);
+        assert(minutes == 0) else $fatal("Ошибка: минуты должны быть 0 (начало суток)!");
+        assert(hours == 0) else $fatal("Ошибка: часы должны быть 0 (начало суток)!");
+
+        $display("Все тесты пройдены успешно.");
+        $finish;
+    end
+endmodule
