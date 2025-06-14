@@ -1,5 +1,5 @@
 Fitter report for alarm
-Sun Jun 15 03:15:46 2025
+Sun Jun 15 03:39:59 2025
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -35,8 +35,10 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  27. I/O Rules Matrix
  28. Fitter Device Options
  29. Operating Settings and Conditions
- 30. Fitter Messages
- 31. Fitter Suppressed Messages
+ 30. Estimated Delay Added for Hold Timing Summary
+ 31. Estimated Delay Added for Hold Timing Details
+ 32. Fitter Messages
+ 33. Fitter Suppressed Messages
 
 
 
@@ -62,15 +64,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                        ;
 +-------------------------------------+-------------------------------------------------+
-; Fitter Status                       ; Successful - Sun Jun 15 03:15:46 2025           ;
+; Fitter Status                       ; Successful - Sun Jun 15 03:39:59 2025           ;
 ; Quartus II 64-Bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                       ; alarm                                           ;
 ; Top-level Entity Name               ; ClockPins                                       ;
 ; Family                              ; Cyclone V                                       ;
 ; Device                              ; 5CGXFC5C6F27C7                                  ;
 ; Timing Models                       ; Preliminary                                     ;
-; Logic utilization (in ALMs)         ; 112 / 29,080 ( < 1 % )                          ;
-; Total registers                     ; 38                                              ;
+; Logic utilization (in ALMs)         ; 145 / 29,080 ( < 1 % )                          ;
+; Total registers                     ; 64                                              ;
 ; Total pins                          ; 37 / 364 ( 10 % )                               ;
 ; Total virtual pins                  ; 0                                               ;
 ; Total block memory bits             ; 0 / 4,567,040 ( 0 % )                           ;
@@ -144,22 +146,15 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+---------------------------------------+---------------------------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 12          ;
-;                            ;             ;
-; Average used               ; 1.91        ;
-; Maximum used               ; 12          ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;  11.4%      ;
-;     Processors 9-12        ;   2.9%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 16     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
 +--------------------------------------------------+
@@ -222,8 +217,8 @@ applicable agreement for further details.
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 329 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 329 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 414 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 414 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -246,7 +241,7 @@ applicable agreement for further details.
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 329     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 414     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 0       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -254,7 +249,7 @@ applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in D:/Clock/output_files/alarm.pin.
+The pin-out file can be found in C:/Users/Lenovo/Documents/GitHub/Clock/output_files/alarm.pin.
 
 
 +-------------------------------------------------------------------------------------+
@@ -262,44 +257,44 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 +-------------------------------------------------------------+---------------+-------+
 ; Resource                                                    ; Usage         ; %     ;
 +-------------------------------------------------------------+---------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 112 / 29,080  ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 112           ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 114 / 29,080  ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 19            ;       ;
-;         [b] ALMs used for LUT logic                         ; 94            ;       ;
-;         [c] ALMs used for registers                         ; 1             ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 145 / 29,080  ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 145           ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 146 / 29,080  ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 32            ;       ;
+;         [b] ALMs used for LUT logic                         ; 114           ;       ;
+;         [c] ALMs used for registers                         ; 0             ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0             ;       ;
 ;     [B] Estimate of ALMs recoverable by dense packing       ; 3 / 29,080    ; < 1 % ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 1 / 29,080    ; < 1 % ;
-;         [a] Due to location constrained logic               ; 1             ;       ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 2 / 29,080    ; < 1 % ;
+;         [a] Due to location constrained logic               ; 2             ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0             ;       ;
 ;         [c] Due to LAB input limits                         ; 0             ;       ;
 ;         [d] Due to virtual I/Os                             ; 0             ;       ;
 ;                                                             ;               ;       ;
 ; Difficulty packing design                                   ; Low           ;       ;
 ;                                                             ;               ;       ;
-; Total LABs:  partially or completely used                   ; 19 / 2,908    ; < 1 % ;
-;     -- Logic LABs                                           ; 19            ;       ;
+; Total LABs:  partially or completely used                   ; 21 / 2,908    ; < 1 % ;
+;     -- Logic LABs                                           ; 21            ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0             ;       ;
 ;                                                             ;               ;       ;
-; Combinational ALUT usage for logic                          ; 216           ;       ;
+; Combinational ALUT usage for logic                          ; 275           ;       ;
 ;     -- 7 input functions                                    ; 0             ;       ;
-;     -- 6 input functions                                    ; 6             ;       ;
-;     -- 5 input functions                                    ; 8             ;       ;
-;     -- 4 input functions                                    ; 30            ;       ;
-;     -- <=3 input functions                                  ; 172           ;       ;
+;     -- 6 input functions                                    ; 10            ;       ;
+;     -- 5 input functions                                    ; 19            ;       ;
+;     -- 4 input functions                                    ; 47            ;       ;
+;     -- <=3 input functions                                  ; 199           ;       ;
 ; Combinational ALUT usage for route-throughs                 ; 0             ;       ;
-; Dedicated logic registers                                   ; 38            ;       ;
+; Dedicated logic registers                                   ; 64            ;       ;
 ;     -- By type:                                             ;               ;       ;
-;         -- Primary logic registers                          ; 38 / 58,160   ; < 1 % ;
+;         -- Primary logic registers                          ; 64 / 58,160   ; < 1 % ;
 ;         -- Secondary logic registers                        ; 0 / 58,160    ; 0 %   ;
 ;     -- By function:                                         ;               ;       ;
-;         -- Design implementation registers                  ; 38            ;       ;
+;         -- Design implementation registers                  ; 64            ;       ;
 ;         -- Routing optimization registers                   ; 0             ;       ;
 ;                                                             ;               ;       ;
 ; Virtual pins                                                ; 0             ;       ;
 ; I/O pins                                                    ; 37 / 364      ; 10 %  ;
-;     -- Clock pins                                           ; 3 / 14        ; 21 %  ;
+;     -- Clock pins                                           ; 2 / 14        ; 14 %  ;
 ;     -- Dedicated input pins                                 ; 0 / 23        ; 0 %   ;
 ;                                                             ;               ;       ;
 ; Global signals                                              ; 1             ;       ;
@@ -326,11 +321,11 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; Impedance control blocks                                    ; 0 / 3         ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2         ; 0 %   ;
 ; Average interconnect usage (total/H/V)                      ; 0% / 0% / 0%  ;       ;
-; Peak interconnect usage (total/H/V)                         ; 1% / 0% / 1%  ;       ;
-; Maximum fan-out                                             ; 38            ;       ;
+; Peak interconnect usage (total/H/V)                         ; 1% / 1% / 1%  ;       ;
+; Maximum fan-out                                             ; 64            ;       ;
 ; Highest non-global fan-out                                  ; 32            ;       ;
-; Total fan-out                                               ; 775           ;       ;
-; Average fan-out                                             ; 2.36          ;       ;
+; Total fan-out                                               ; 1035          ;       ;
+; Average fan-out                                             ; 2.50          ;       ;
 +-------------------------------------------------------------+---------------+-------+
 
 
@@ -339,32 +334,32 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+-----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 112 / 29080 ( < 1 % ) ; 0 / 29080 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 112                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 114 / 29080 ( < 1 % ) ; 0 / 29080 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 19                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 94                    ; 0                              ;
-;         [c] ALMs used for registers                         ; 1                     ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 145 / 29080 ( < 1 % ) ; 0 / 29080 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 145                   ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 146 / 29080 ( < 1 % ) ; 0 / 29080 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 32                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 114                   ; 0                              ;
+;         [c] ALMs used for registers                         ; 0                     ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
 ;     [B] Estimate of ALMs recoverable by dense packing       ; 3 / 29080 ( < 1 % )   ; 0 / 29080 ( 0 % )              ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 1 / 29080 ( < 1 % )   ; 0 / 29080 ( 0 % )              ;
-;         [a] Due to location constrained logic               ; 1                     ; 0                              ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 2 / 29080 ( < 1 % )   ; 0 / 29080 ( 0 % )              ;
+;         [a] Due to location constrained logic               ; 2                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
 ;         [c] Due to LAB input limits                         ; 0                     ; 0                              ;
 ;         [d] Due to virtual I/Os                             ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 19 / 2908 ( < 1 % )   ; 0 / 2908 ( 0 % )               ;
-;     -- Logic LABs                                           ; 19                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 21 / 2908 ( < 1 % )   ; 0 / 2908 ( 0 % )               ;
+;     -- Logic LABs                                           ; 21                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 216                   ; 0                              ;
+; Combinational ALUT usage for logic                          ; 275                   ; 0                              ;
 ;     -- 7 input functions                                    ; 0                     ; 0                              ;
-;     -- 6 input functions                                    ; 6                     ; 0                              ;
-;     -- 5 input functions                                    ; 8                     ; 0                              ;
-;     -- 4 input functions                                    ; 30                    ; 0                              ;
-;     -- <=3 input functions                                  ; 172                   ; 0                              ;
+;     -- 6 input functions                                    ; 10                    ; 0                              ;
+;     -- 5 input functions                                    ; 19                    ; 0                              ;
+;     -- 4 input functions                                    ; 47                    ; 0                              ;
+;     -- <=3 input functions                                  ; 199                   ; 0                              ;
 ; Combinational ALUT usage for route-throughs                 ; 0                     ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
@@ -372,10 +367,10 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 38 / 58160 ( < 1 % )  ; 0 / 58160 ( 0 % )              ;
+;         -- Primary logic registers                          ; 64 / 58160 ( < 1 % )  ; 0 / 58160 ( 0 % )              ;
 ;         -- Secondary logic registers                        ; 0 / 58160 ( 0 % )     ; 0 / 58160 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
-;         -- Design implementation registers                  ; 38                    ; 0                              ;
+;         -- Design implementation registers                  ; 64                    ; 0                              ;
 ;         -- Routing optimization registers                   ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ;                                                             ;                       ;                                ;
@@ -393,8 +388,8 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 791                   ; 0                              ;
-;     -- Registered Connections                               ; 144                   ; 0                              ;
+;     -- Total Connections                                    ; 1051                  ; 0                              ;
+;     -- Registered Connections                               ; 233                   ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
 ;     -- Top                                                  ; 0                     ; 0                              ;
@@ -426,8 +421,8 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 +------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+
 ; Name ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ;
 +------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+
-; clk  ; H12   ; 7A       ; 38           ; 61           ; 0            ; 38                    ; 0                  ; yes    ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ;
-; rst  ; P11   ; 3B       ; 21           ; 0            ; 0            ; 4                     ; 0                  ; no     ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ;
+; clk  ; H12   ; 7A       ; 38           ; 61           ; 0            ; 64                    ; 0                  ; yes    ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ;
+; rst  ; P11   ; 3B       ; 21           ; 0            ; 0            ; 31                    ; 0                  ; no     ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ;
 +------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+
 
 
@@ -436,13 +431,13 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 +------------------+-------+----------+--------------+--------------+--------------+-----------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+---------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name             ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Output Buffer Delay ; Output Buffer Delay Control ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +------------------+-------+----------+--------------+--------------+--------------+-----------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+---------------------+-----------------------------+----------------------+----------------------+---------------------+
-; leds[0]          ; B24   ; 7A       ; 65           ; 61           ; 0            ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; leds[1]          ; C19   ; 7A       ; 59           ; 61           ; 34           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; leds[2]          ; Y14   ; 4A       ; 32           ; 0            ; 40           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; leds[3]          ; Y15   ; 4A       ; 46           ; 0            ; 0            ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; leds[4]          ; AA14  ; 4A       ; 32           ; 0            ; 57           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; leds[5]          ; F22   ; 6A       ; 68           ; 52           ; 54           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; leds[6]          ; U11   ; 3B       ; 19           ; 0            ; 17           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; leds[0]          ; W17   ; 4A       ; 57           ; 0            ; 17           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; leds[1]          ; W16   ; 4A       ; 57           ; 0            ; 0            ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; leds[2]          ; AD18  ; 4A       ; 48           ; 0            ; 91           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; leds[3]          ; AE16  ; 4A       ; 55           ; 0            ; 40           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; leds[4]          ; AD17  ; 4A       ; 48           ; 0            ; 40           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; leds[5]          ; AD16  ; 4A       ; 48           ; 0            ; 57           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; leds[6]          ; AF22  ; 4A       ; 51           ; 0            ; 51           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; seg_display_0[0] ; Y18   ; 4A       ; 62           ; 0            ; 40           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; seg_display_0[1] ; Y19   ; 4A       ; 65           ; 0            ; 17           ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; seg_display_0[2] ; Y20   ; 4A       ; 65           ; 0            ; 0            ; no              ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
@@ -482,12 +477,12 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; B1L      ; 0 / 14 ( 0 % )   ; --            ; --           ; --            ;
 ; B0L      ; 0 / 14 ( 0 % )   ; --            ; --           ; --            ;
 ; 3A       ; 2 / 16 ( 13 % )  ; 2.5V          ; --           ; 2.5V          ;
-; 3B       ; 2 / 32 ( 6 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 4A       ; 17 / 80 ( 21 % ) ; 2.5V          ; --           ; 2.5V          ;
+; 3B       ; 1 / 32 ( 3 % )   ; 2.5V          ; --           ; 2.5V          ;
+; 4A       ; 21 / 80 ( 26 % ) ; 2.5V          ; --           ; 2.5V          ;
 ; 5A       ; 12 / 16 ( 75 % ) ; 2.5V          ; --           ; 2.5V          ;
 ; 5B       ; 0 / 32 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 6A       ; 1 / 48 ( 2 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 7A       ; 3 / 80 ( 4 % )   ; 2.5V          ; --           ; 2.5V          ;
+; 6A       ; 0 / 48 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
+; 7A       ; 1 / 80 ( 1 % )   ; 2.5V          ; --           ; 2.5V          ;
 ; 8A       ; 0 / 32 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
 +----------+------------------+---------------+--------------+---------------+
 
@@ -534,7 +529,7 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; AA11     ;            ; --       ; VCCPD3B4A                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AA12     ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AA13     ;            ; --       ; VCCPD3B4A                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; AA14     ; 87         ; 4A       ; leds[4]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AA14     ; 87         ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AA15     ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AA16     ; 113        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AA17     ;            ; --       ; VCCPD3B4A                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -614,9 +609,9 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; AD13     ; 93         ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AD14     ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AD15     ;            ; 4A       ; VREFB4AN0                       ; power  ;              ;                     ; --           ;                 ; --       ; --           ;
-; AD16     ; 119        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AD17     ; 121        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AD18     ; 118        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; AD16     ; 119        ; 4A       ; leds[5]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AD17     ; 121        ; 4A       ; leds[4]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AD18     ; 118        ; 4A       ; leds[2]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AD19     ;            ; 4A       ; VCCIO4A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AD20     ; 134        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AD21     ; 139        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -640,7 +635,7 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; AE13     ; 109        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AE14     ; 112        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AE15     ; 135        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AE16     ; 137        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; AE16     ; 137        ; 4A       ; leds[3]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AE17     ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AE18     ; 117        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AE19     ; 125        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -671,7 +666,7 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; AF19     ; 123        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AF20     ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AF21     ; 128        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AF22     ; 126        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; AF22     ; 126        ; 4A       ; leds[6]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AF23     ; 147        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AF24     ; 150        ; 4A       ; seg_display_1[0]                ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; AF25     ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -698,7 +693,7 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; B21      ; 276        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; B22      ; 272        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; B23      ;            ; 7A       ; VCCIO7A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; B24      ; 267        ; 7A       ; leds[0]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; B24      ; 267        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; B25      ; 247        ; 6A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; B26      ; 249        ; 6A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; C1       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -719,7 +714,7 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; C16      ;            ; 7A       ; VCCIO7A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; C17      ; 296        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C18      ; 286        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; C19      ; 284        ; 7A       ; leds[1]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; C19      ; 284        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C20      ; 280        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C21      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; C22      ; 266        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -800,7 +795,7 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; F19      ;            ; --       ; VCCPD7A8A                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; F20      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; F21      ; 260        ; 6A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
-; F22      ; 261        ; 6A       ; leds[5]                         ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; F22      ; 261        ; 6A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; F23      ; 243        ; 6A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; F24      ; 235        ; 6A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; F25      ;            ; 6A       ; VCCIO6A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -1075,7 +1070,7 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; U8       ;            ; 3B       ; VCCIO3B                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; U9       ; 54         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; U10      ; 81         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; U11      ; 79         ; 3B       ; leds[6]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; U11      ; 79         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; U12      ; 100        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; U13      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; U14      ; 108        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1132,8 +1127,8 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; W13      ; 90         ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; W14      ;            ; 4A       ; VCCIO4A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; W15      ; 122        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; W16      ; 140        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; W17      ; 138        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; W16      ; 140        ; 4A       ; leds[1]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; W17      ; 138        ; 4A       ; leds[0]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; W18      ; 162        ; 4A       ; seg_display_0[3]                ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; W19      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; W20      ; 171        ; 5A       ; seg_display_2[0]                ; output ; 2.5 V        ;                     ; Row I/O      ; Y               ; no       ; Off          ;
@@ -1156,8 +1151,8 @@ The pin-out file can be found in D:/Clock/output_files/alarm.pin.
 ; Y11      ; 55         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; Y12      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; Y13      ; 95         ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; Y14      ; 89         ; 4A       ; leds[2]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
-; Y15      ; 116        ; 4A       ; leds[3]                         ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; Y14      ; 89         ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; Y15      ; 116        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; Y16      ; 114        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; Y17      ;            ; 4A       ; VCCIO4A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; Y18      ; 153        ; 4A       ; seg_display_0[0]                ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
@@ -1178,14 +1173,16 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                     ; Library Name ;
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |ClockPins                                   ; 112.0 (0.5)          ; 112.5 (0.5)                      ; 1.5 (0.0)                                         ; 1.0 (0.0)                        ; 0.0 (0.0)            ; 216 (1)             ; 38 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 37   ; 0            ; |ClockPins                                                                                                                                              ; work         ;
-;    |ClockTop:ClockTop|                       ; 111.5 (0.0)          ; 112.0 (0.0)                      ; 1.5 (0.0)                                         ; 1.0 (0.0)                        ; 0.0 (0.0)            ; 215 (0)             ; 38 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop                                                                                                                            ; work         ;
+; |ClockPins                                   ; 144.5 (0.5)          ; 145.5 (0.5)                      ; 2.5 (0.0)                                         ; 1.5 (0.0)                        ; 0.0 (0.0)            ; 275 (1)             ; 64 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 37   ; 0            ; |ClockPins                                                                                                                                              ; work         ;
+;    |ClockTop:ClockTop|                       ; 144.0 (0.0)          ; 145.0 (0.0)                      ; 2.5 (0.0)                                         ; 1.5 (0.0)                        ; 0.0 (0.0)            ; 274 (0)             ; 64 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop                                                                                                                            ; work         ;
+;       |AlarmModule:alarmModule|              ; 1.0 (1.0)            ; 1.5 (1.5)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|AlarmModule:alarmModule                                                                                                    ; work         ;
+;       |AlarmSignal:alarmSignal|              ; 31.0 (31.0)          ; 33.0 (33.0)                      ; 2.5 (2.5)                                         ; 0.5 (0.5)                        ; 0.0 (0.0)            ; 57 (57)             ; 26 (26)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|AlarmSignal:alarmSignal                                                                                                    ; work         ;
 ;       |SevenSegEncoder:seg_hour_tens_enc|    ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc                                                                                          ; work         ;
 ;       |SevenSegEncoder:seg_hour_units_enc|   ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_hour_units_enc                                                                                         ; work         ;
 ;       |SevenSegEncoder:seg_min_tens_enc|     ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_min_tens_enc                                                                                           ; work         ;
 ;       |SevenSegEncoder:seg_min_units_enc|    ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|SevenSegEncoder:seg_min_units_enc                                                                                          ; work         ;
 ;       |TickCounter:tick_counter|             ; 17.5 (17.5)          ; 16.5 (16.5)                      ; 0.0 (0.0)                                         ; 1.0 (1.0)                        ; 0.0 (0.0)            ; 29 (29)             ; 25 (25)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TickCounter:tick_counter                                                                                                   ; work         ;
-;       |TimeCounter:hour_counter|             ; 34.5 (5.5)           ; 35.0 (6.0)                       ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 68 (10)             ; 6 (6)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter                                                                                                   ; work         ;
+;       |TimeCounter:hour_counter|             ; 34.5 (5.5)           ; 34.5 (5.5)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 68 (10)             ; 6 (6)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter                                                                                                   ; work         ;
 ;          |lpm_divide:Div0|                   ; 13.5 (0.0)           ; 13.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0                                                                                   ; work         ;
 ;             |lpm_divide_3am:auto_generated|  ; 13.5 (0.0)           ; 13.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated                                                     ; work         ;
 ;                |sign_div_unsign_9kh:divider| ; 13.5 (0.0)           ; 13.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 27 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider                         ; work         ;
@@ -1194,15 +1191,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;             |lpm_divide_62m:auto_generated|  ; 15.5 (0.0)           ; 15.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 31 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated                                                     ; work         ;
 ;                |sign_div_unsign_9kh:divider| ; 15.5 (0.0)           ; 15.5 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 31 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider                         ; work         ;
 ;                   |alt_u_div_ose:divider|    ; 15.5 (15.5)          ; 15.5 (15.5)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 31 (31)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider   ; work         ;
-;       |TimeCounter:minute_counter|           ; 45.5 (5.5)           ; 46.5 (6.0)                       ; 1.0 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 90 (10)             ; 7 (7)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter                                                                                                 ; work         ;
+;       |TimeCounter:minute_counter|           ; 45.5 (5.5)           ; 45.5 (5.5)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 90 (10)             ; 7 (7)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter                                                                                                 ; work         ;
 ;          |lpm_divide:Div0|                   ; 19.0 (0.0)           ; 19.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 38 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0                                                                                 ; work         ;
 ;             |lpm_divide_4am:auto_generated|  ; 19.0 (0.0)           ; 19.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 38 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated                                                   ; work         ;
 ;                |sign_div_unsign_akh:divider| ; 19.0 (0.0)           ; 19.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 38 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider                       ; work         ;
 ;                   |alt_u_div_qse:divider|    ; 19.0 (19.0)          ; 19.0 (19.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 38 (38)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider ; work         ;
-;          |lpm_divide:Mod0|                   ; 21.0 (0.0)           ; 21.5 (0.0)                       ; 0.5 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0                                                                                 ; work         ;
-;             |lpm_divide_72m:auto_generated|  ; 21.0 (0.0)           ; 21.5 (0.0)                       ; 0.5 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated                                                   ; work         ;
-;                |sign_div_unsign_akh:divider| ; 21.0 (0.0)           ; 21.5 (0.0)                       ; 0.5 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider                       ; work         ;
-;                   |alt_u_div_qse:divider|    ; 21.0 (21.0)          ; 21.5 (21.5)                      ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (42)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider ; work         ;
+;          |lpm_divide:Mod0|                   ; 21.0 (0.0)           ; 21.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0                                                                                 ; work         ;
+;             |lpm_divide_72m:auto_generated|  ; 21.0 (0.0)           ; 21.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated                                                   ; work         ;
+;                |sign_div_unsign_akh:divider| ; 21.0 (0.0)           ; 21.0 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (0)              ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider                       ; work         ;
+;                   |alt_u_div_qse:divider|    ; 21.0 (21.0)          ; 21.0 (21.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (42)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider ; work         ;
 +----------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1252,31 +1249,58 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
-+------------------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                                 ;
-+------------------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                              ; Pad To Core Index ; Setting ;
-+------------------------------------------------------------------+-------------------+---------+
-; clk                                                              ;                   ;         ;
-; rst                                                              ;                   ;         ;
-;      - ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~0 ; 1                 ; 0       ;
-;      - ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~1 ; 1                 ; 0       ;
-;      - ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~0   ; 1                 ; 0       ;
-;      - ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~1   ; 1                 ; 0       ;
-+------------------------------------------------------------------+-------------------+---------+
++-----------------------------------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                                                      ;
++-----------------------------------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                                                   ; Pad To Core Index ; Setting ;
++-----------------------------------------------------------------------+-------------------+---------+
+; clk                                                                   ;                   ;         ;
+; rst                                                                   ;                   ;         ;
+;      - ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~0      ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~1      ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~0        ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~1        ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_signal~0       ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[24]~0  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[23]~1  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[0]~2   ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[22]~3  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[21]~4  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[20]~5  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[18]~6  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19]~7  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[17]~8  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[16]~9  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[15]~10 ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[14]~11 ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[12]~12 ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[13]~13 ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[5]~14  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[4]~15  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[3]~16  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[2]~17  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[0]~18  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[1]~19  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[11]~20 ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[10]~21 ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[9]~22  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[8]~23  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[6]~24  ; 1                 ; 0       ;
+;      - ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[7]~25  ; 1                 ; 0       ;
++-----------------------------------------------------------------------+-------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                      ;
-+-----------------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; Name                                                      ; Location            ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~0   ; MLABCELL_X60_Y5_N57 ; 6       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~1   ; MLABCELL_X60_Y5_N24 ; 6       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~0 ; LABCELL_X58_Y5_N6   ; 7       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~1 ; LABCELL_X59_Y5_N12  ; 32      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; clk                                                       ; PIN_H12             ; 38      ; Clock                     ; yes    ; Global Clock         ; GCLK14           ; --                        ;
-+-----------------------------------------------------------+---------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                     ;
++-----------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                                      ; Location           ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~0   ; LABCELL_X63_Y4_N15 ; 6       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~1   ; LABCELL_X63_Y4_N54 ; 6       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~0 ; LABCELL_X64_Y4_N9  ; 7       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~1 ; LABCELL_X64_Y4_N0  ; 32      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; clk                                                       ; PIN_H12            ; 64      ; Clock                     ; yes    ; Global Clock         ; GCLK14           ; --                        ;
++-----------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -1284,7 +1308,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+----------------------+------------------+---------------------------+
-; clk  ; PIN_H12  ; 38      ; Global Clock         ; GCLK14           ; --                        ;
+; clk  ; PIN_H12  ; 64      ; Global Clock         ; GCLK14           ; --                        ;
 +------+----------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1294,21 +1318,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                                                                                                                    ; Fan-Out ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~1                                                                                                               ; 32      ;
+; rst~input                                                                                                                                                               ; 31      ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|LessThan0~4                                                                                                                   ; 25      ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|add_sub_3_result_int[4]~1  ; 17      ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|add_sub_3_result_int[4]~1    ; 16      ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_5~1                     ; 15      ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_5~1                       ; 11      ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_6~1                     ; 11      ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|counter[4]                                                                                                                 ; 10      ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]                                                                                                                 ; 10      ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|add_sub_3_result_int[4]~1  ; 10      ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_trigger                                                                                                                 ; 9       ;
+; ClockTop:ClockTop|TimeCounter:hour_counter|counter[4]                                                                                                                   ; 9       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|add_sub_3_result_int[4]~1    ; 9       ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|counter[2]                                                                                                                 ; 9       ;
-; ClockTop:ClockTop|TimeCounter:hour_counter|counter[4]                                                                                                                   ; 8       ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]                                                                                                                 ; 8       ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|counter[4]                                                                                                                 ; 8       ;
-; ClockTop:ClockTop|TimeCounter:hour_counter|counter[2]                                                                                                                   ; 8       ;
+; ClockTop:ClockTop|TimeCounter:hour_counter|counter[2]                                                                                                                   ; 9       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_signal[0]                                                                                                               ; 8       ;
+; ClockTop:ClockTop|TimeCounter:hour_counter|counter[1]                                                                                                                   ; 8       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|counter[3]                                                                                                                 ; 8       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_5~1                     ; 8       ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|counter[1]                                                                                                                 ; 8       ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|counter[2]                                                                                                                 ; 8       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|counter[5]~0                                                                                                               ; 7       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[28]~7               ; 7       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[27]~3               ; 7       ;
@@ -1320,30 +1348,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[30]~0             ; 7       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_6~1                       ; 7       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_5~1                       ; 7       ;
-; ClockTop:ClockTop|TimeCounter:hour_counter|counter[1]                                                                                                                   ; 7       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_7~1                     ; 7       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_6~1                     ; 7       ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|counter[1]                                                                                                                 ; 7       ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|counter[0]                                                                                                                 ; 7       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~1                                                                                                                 ; 6       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]~0                                                                                                                 ; 6       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|counter[5]                                                                                                                   ; 6       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|counter[6]                                                                                                                 ; 6       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|counter[3]                                                                                                                   ; 6       ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|counter[0]                                                                                                                 ; 6       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|counter[0]                                                                                                                   ; 5       ;
-; rst~input                                                                                                                                                               ; 4       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_6~1                       ; 4       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_7~1                     ; 4       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[13]                                                                                                                  ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[7]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[6]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[8]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[9]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[10]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[11]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[1]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[0]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[2]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[3]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[4]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[5]                                                                                                              ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[13]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[12]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[14]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[15]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[16]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[17]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[18]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[20]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[21]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[22]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[23]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[24]                                                                                                             ; 3       ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|Equal0~0                                                                                                                   ; 3       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[14]                                                                                                                  ; 3       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[16]~5               ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[16]~4               ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[15]~9             ; 2       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[0]~2                                                                                                            ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[16]~1             ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[16]~8             ; 2       ;
+; ClockTop:ClockTop|TimeCounter:hour_counter|Equal0~0                                                                                                                     ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Equal0~3                                                                                                                     ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Equal0~2                                                                                                                     ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Equal0~1                                                                                                                     ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Equal0~0                                                                                                                     ; 2       ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|Equal0~0                                                                                                                   ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[16]~6               ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[16]~5               ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[16]~4               ; 2       ;
@@ -1363,30 +1417,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|add_sub_3_result_int[2]~17 ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|add_sub_3_result_int[1]~13 ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_5~21                    ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[6]                                                                                                                   ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[7]                                                                                                                   ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[5]                                                                                                                   ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[4]                                                                                                                   ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[3]                                                                                                                   ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[8]                                                                                                                   ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[6]                                                                                                                   ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[0]                                                                                                                   ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[1]                                                                                                                   ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[2]                                                                                                                   ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[13]                                                                                                                  ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[22]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[12]                                                                                                                  ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[18]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[11]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[10]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[9]                                                                                                                   ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[8]                                                                                                                   ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[4]                                                                                                                   ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[3]                                                                                                                   ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[24]                                                                                                                  ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[1]                                                                                                                   ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[23]                                                                                                                  ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[22]                                                                                                                  ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[5]                                                                                                                   ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[21]                                                                                                                  ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[20]                                                                                                                  ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[0]                                                                                                                   ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[19]                                                                                                                  ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[20]                                                                                                                  ; 2       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|counter[18]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[17]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[16]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|counter[15]                                                                                                                  ; 2       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|counter[14]                                                                                                                  ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_5~13                      ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_5~9                       ; 2       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|add_sub_3_result_int[0]~5    ; 2       ;
@@ -1406,6 +1460,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[16]~7             ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[16]~15            ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[16]~14            ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[7]~25                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[6]~24                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[8]~23                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[9]~22                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[10]~21                                                                                                          ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[11]~20                                                                                                          ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[1]~19                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[0]~18                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[2]~17                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[3]~16                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[4]~15                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[5]~14                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[13]~13                                                                                                          ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[12]~12                                                                                                          ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[14]~11                                                                                                          ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[15]~10                                                                                                          ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[16]~9                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[17]~8                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19]~7                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[18]~6                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[20]~5                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[21]~4                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[22]~3                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[23]~1                                                                                                           ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[24]~0                                                                                                           ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[17]~3               ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[17]~2               ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|StageOut[18]~1               ; 1       ;
@@ -1426,7 +1505,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[17]~10            ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[22]~9             ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0|lpm_divide_72m:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|StageOut[22]~7             ; 1       ;
-; ClockTop:ClockTop|TimeCounter:hour_counter|Equal0~0                                                                                                                     ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_signal~0                                                                                                                ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|LessThan0~3                                                                                                                   ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|LessThan0~2                                                                                                                   ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|LessThan0~1                                                                                                                   ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|LessThan0~0                                                                                                                   ; 1       ;
+; ClockTop:ClockTop|AlarmModule:alarmModule|alarm_trigger~0                                                                                                               ; 1       ;
 ; ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc|WideOr0~0                                                                                                           ; 1       ;
 ; ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc|WideOr1~0                                                                                                           ; 1       ;
 ; ClockTop:ClockTop|SevenSegEncoder:seg_hour_tens_enc|WideOr2~0                                                                                                           ; 1       ;
@@ -1487,6 +1571,55 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_6~14                    ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_6~13                    ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider|op_5~18                    ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~98                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~97                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~94                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~93                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~90                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~89                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~86                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~85                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~82                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~81                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~78                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~77                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~74                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~73                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~70                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~69                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~66                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~65                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~62                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~61                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~58                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~57                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~54                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~53                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~50                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~49                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~46                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~45                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~42                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~41                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~38                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~37                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~34                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~33                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~30                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~29                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~26                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~25                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~22                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~21                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~18                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~17                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~14                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~13                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~10                                                                                                                       ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~9                                                                                                                        ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~6                                                                                                                        ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~5                                                                                                                        ; 1       ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|Add0~1                                                                                                                        ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_6~10                      ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_5~10                      ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_5~9                       ; 1       ;
@@ -1542,10 +1675,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~57                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~54                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~53                                                                                                                      ; 1       ;
+; ClockTop:ClockTop|TickCounter:tick_counter|Add0~50                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~49                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~46                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~45                                                                                                                      ; 1       ;
-; ClockTop:ClockTop|TickCounter:tick_counter|Add0~42                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~41                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~38                                                                                                                      ; 1       ;
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~37                                                                                                                      ; 1       ;
@@ -1569,8 +1702,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ClockTop:ClockTop|TickCounter:tick_counter|Add0~1                                                                                                                       ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|Add0~26                                                                                                                    ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|Add0~25                                                                                                                    ; 1       ;
+; ClockTop:ClockTop|TimeCounter:minute_counter|Add0~22                                                                                                                    ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|Add0~21                                                                                                                    ; 1       ;
-; ClockTop:ClockTop|TimeCounter:minute_counter|Add0~18                                                                                                                    ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:minute_counter|Add0~17                                                                                                                    ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_6~6                       ; 1       ;
 ; ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0|lpm_divide_3am:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider|op_5~6                       ; 1       ;
@@ -1654,14 +1787,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------+-------------------------+
 ; Interconnect Resource Type ; Usage                   ;
 +----------------------------+-------------------------+
-; Block interconnects        ; 183 / 217,884 ( < 1 % ) ;
-; C12 interconnects          ; 1 / 10,080 ( < 1 % )    ;
-; C2 interconnects           ; 38 / 87,208 ( < 1 % )   ;
-; C4 interconnects           ; 39 / 41,360 ( < 1 % )   ;
-; Local interconnects        ; 86 / 58,160 ( < 1 % )   ;
-; R14 interconnects          ; 10 / 9,228 ( < 1 % )    ;
-; R3 interconnects           ; 63 / 94,896 ( < 1 % )   ;
-; R6 interconnects           ; 48 / 194,640 ( < 1 % )  ;
+; Block interconnects        ; 249 / 217,884 ( < 1 % ) ;
+; C12 interconnects          ; 3 / 10,080 ( < 1 % )    ;
+; C2 interconnects           ; 65 / 87,208 ( < 1 % )   ;
+; C4 interconnects           ; 31 / 41,360 ( < 1 % )   ;
+; Local interconnects        ; 120 / 58,160 ( < 1 % )  ;
+; R14 interconnects          ; 12 / 9,228 ( < 1 % )    ;
+; R3 interconnects           ; 78 / 94,896 ( < 1 % )   ;
+; R6 interconnects           ; 58 / 194,640 ( < 1 % )  ;
 +----------------------------+-------------------------+
 
 
@@ -1673,11 +1806,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; DQS bus muxes                ; 0 / 21 ( 0 % )         ;
 ; DQS-18 I/O buses             ; 0 / 21 ( 0 % )         ;
 ; DQS-9 I/O buses              ; 0 / 21 ( 0 % )         ;
-; Direct links                 ; 56 / 217,884 ( < 1 % ) ;
+; Direct links                 ; 91 / 217,884 ( < 1 % ) ;
 ; Global clocks                ; 1 / 16 ( 6 % )         ;
 ; Horizontal periphery clocks  ; 0 / 12 ( 0 % )         ;
 ; Quadrant clocks              ; 0 / 88 ( 0 % )         ;
-; R14/C12 interconnect drivers ; 10 / 15,096 ( < 1 % )  ;
+; R14/C12 interconnect drivers ; 14 / 15,096 ( < 1 % )  ;
 ; Spine clocks                 ; 1 / 180 ( < 1 % )      ;
 ; Wire stub REs                ; 0 / 11,594 ( 0 % )     ;
 +------------------------------+------------------------+
@@ -1821,10 +1954,53 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------+--------+
 
 
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary              ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
+This will disable optimization of problematic paths and expose them for further analysis using either the TimeQuest Timing Analyzer or the Classic Timing Analyzer.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                 ;
++-------------------------------------------------------------+-------------------------------------------------------------+-------------------+
+; Source Register                                             ; Destination Register                                        ; Delay Added in ns ;
++-------------------------------------------------------------+-------------------------------------------------------------+-------------------+
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[12] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.231             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[17] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.165             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[16] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.165             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[15] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.165             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[14] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.165             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[13] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.165             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[24] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[23] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[22] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[21] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[20] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[18] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[5]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[4]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[3]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[2]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[1]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[11] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[10] ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[9]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[8]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[6]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[7]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
+; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[0]  ; ClockTop:ClockTop|AlarmSignal:alarmSignal|alarm_counter[19] ; 0.144             ;
++-------------------------------------------------------------+-------------------------------------------------------------+-------------------+
+Note: This table only shows the top 25 path(s) that have the largest delay added for hold.
+
+
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device 5CGXFC5C6F27C7 for design "alarm"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -1841,7 +2017,7 @@ Critical Warning (169085): No exact pin location assignment(s) for 7 pins of 37 
     Info (169086): Pin leds[6] not assigned to an exact location on the device
 Info (184020): Starting Fitter periphery placement operations
 Info (11191): Automatically promoted 1 clock (1 global)
-    Info (11162): clk~inputCLKENA0 with 38 fanout uses global clock CLKCTRL_G14
+    Info (11162): clk~inputCLKENA0 with 64 fanout uses global clock CLKCTRL_G14
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'alarm.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
@@ -1851,7 +2027,7 @@ Info (332130): Timing requirements not specified -- quality metrics such as perf
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:11
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:14
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
@@ -1859,11 +2035,11 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X57_Y0 to location X68_Y11
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
+    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X57_Y0 to location X68_Y11
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.56 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 5CGXFC5C6F27C7 are preliminary
 Info (334004): Delay annotation completed successfully
@@ -1885,17 +2061,17 @@ Critical Warning (169244): Total number of single-ended output or bi-directional
         Info (169220): Location Y23 (pad PAD_178): Pin seg_display_3[5] of type output uses 2.5 V I/O standard
         Info (169220): Location Y24 (pad PAD_180): Pin seg_display_3[6] of type output uses 2.5 V I/O standard
         Info (169220): Location U20 (pad PAD_181): Pin seg_display_2[4] of type output uses 2.5 V I/O standard
-Info (144001): Generated suppressed messages file D:/Clock/output_files/alarm.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 6655 megabytes
-    Info: Processing ended: Sun Jun 15 03:15:47 2025
-    Info: Elapsed time: 00:00:36
-    Info: Total CPU time (on all processors): 00:01:07
+Info (144001): Generated suppressed messages file C:/Users/Lenovo/Documents/GitHub/Clock/output_files/alarm.fit.smsg
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 5872 megabytes
+    Info: Processing ended: Sun Jun 15 03:39:59 2025
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:00:34
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in D:/Clock/output_files/alarm.fit.smsg.
+The suppressed messages can be found in C:/Users/Lenovo/Documents/GitHub/Clock/output_files/alarm.fit.smsg.
 
 
