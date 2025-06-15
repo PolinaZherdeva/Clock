@@ -1,4 +1,4 @@
-module ClockTop #(
+ClockTop #( 
     parameter TICK_COUNT_MAX = 10000000
 )( 
     input  logic clk, // 50 МГц
@@ -107,4 +107,4 @@ module ClockTop #(
 	 );
 	
 
-endmodule
+endmodule 

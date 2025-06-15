@@ -3,35 +3,34 @@ module AlarmModule (
     input  logic rst,
 
     // Текущее время
-    input  logic [$clog2(60):0] curr_minutes,
-    input  logic [$clog2(24):0] curr_hours,
+    input  logic [$clog2(60)-1:0] curr_minutes,
+    input  logic [$clog2(24)-1:0] curr_hours,
 
-    // Установка будильника, когда будет модуль настроек
-    input  logic set_alarm,  // Сигнал установки будильника
+    // Новое время будильника (подаётся только при set_alarm)
+    input  logic [$clog2(60)-1:0] new_alarm_minutes,
+    input  logic [$clog2(24)-1:0] new_alarm_hours,
+    input  logic set_alarm,
 
-    // Сигнал о срабатывании будильника
+    // Выход: сигнал срабатывания будильника
     output logic alarm_trigger
-	 
-	// output reg [17:0] alarm_signal
 );
 
-    // Регистр хранения целевого времени будильника
-    logic [$clog2(60):0] alarm_minutes;
-    logic [$clog2(24):0] alarm_hours;
-	 
-    // Сохраняем заданное время по сигналу set_alarm
-    always_ff @(posedge clk) begin
+    // Внутренние регистры для хранения времени будильника
+    logic [$clog2(60)-1:0] alarm_minutes;
+    logic [$clog2(24)-1:0] alarm_hours;
+
+    // Обновление времени будильника при set_alarm
+    always_ff @(posedge clk or negedge rst) begin
         if (!rst) begin
             alarm_minutes <= 'x;
             alarm_hours   <= 'x;
-       // end else if (set_alarm) begin
-            alarm_minutes <= 10;
-            alarm_hours   <= 1;
+        end else if (set_alarm) begin
+            alarm_minutes <= new_alarm_minutes;
+            alarm_hours   <= new_alarm_hours;
         end
-
     end
 
-    // Сравнение текущего времени с будильником
-    assign alarm_trigger = (curr_minutes == alarm_minutes) && (curr_hours == alarm_hours);
+    // Сигнал будильника активируется при совпадении времени
+    assign alarm_trigger = (curr_minutes == alarm_minutes) && (curr_hours   == alarm_hours);
 
 endmodule

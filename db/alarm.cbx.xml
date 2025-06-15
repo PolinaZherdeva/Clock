@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="alarm">
-		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|TimeCounter:hour_counter|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_4am.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|TimeCounter:minute_counter|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_72m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_2am.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_52m.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
