@@ -16,15 +16,17 @@ module ClockPins(
 	(* chip_pin = "F7, F6, G6, G7, J8, J7, K10, K8, H7, J10, L7, K6, D8, E9, A5, B6, H8, H9" *) output[17:0] leds,
 	(* altera_atribute = `v1_2, chip_pin = "AE19" *) input rst, //SW9
 	 //кнопки изменения значения времени
-	(* altera_atribute = `v1_2, chip_pin = "P11" *) input dec_min_btn,
+	(* altera_atribute = `v1_2, chip_pin = "P11" *) input decr_min_btn,
 	(* altera_atribute = `v1_2, chip_pin = "P12" *) input incr_min_btn,
-	(* altera_atribute = `v1_2, chip_pin = "Y15" *) input dec_hour_btn,
+	(* altera_atribute = `v1_2, chip_pin = "Y15" *) input decr_hour_btn,
 	(* altera_atribute = `v1_2, chip_pin = "Y16" *) input incr_hour_btn,
 	//switches
 	(* altera_atribute = `v1_2, chip_pin = "AC9" *) input time_mode_switch, // SW0
 	(* altera_atribute = `v1_2, chip_pin = "AE10" *) input alarm_mode_switch, // SW1
 	(* altera_atribute = `v1_2, chip_pin = "AD13" *) input min_select_switch, // SW2
 	(* altera_atribute = `v1_2, chip_pin = "AC8" *) input hour_select_switch, // SW3
+	
+	(* altera_atribute = `v1_2, chip_pin = "W11" *) input save_switch, // SW4
 	//clk
 	(* chip_pin = "H12" *) input clk
 );
@@ -39,7 +41,21 @@ ClockTop ClockTop(
 	.seg_hour_units_2(seg_display_2),
 	.seg_hour_tens_3(seg_display_3),
 	.alarm_signal(leds),
-	.settings_signal(time_mode_switch)
+	
+	//режим настроек
+	.time_mode_switch(time_mode_switch),
+	.alarm_mode_switch(alarm_mode_switch),
+	//сохранение
+	.save_switch(save_switch),
+	//изменение десятков/единиц
+	.hours_tens_switch(hour_select_switch),
+	.min_tens_switch(min_select_switch),
+	
+	// кнопки
+	.inc_min_btn(incr_min_btn),
+	.dec_min_btn(decr_min_btn),
+	.inc_hour_btn(incr_hour_btn),
+	.dec_hour_btn(decr_hour_btn)
 
 );
 

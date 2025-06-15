@@ -1,9 +1,17 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="alarm">
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_a2m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod4" CBX_FILE_NAME="lpm_divide_82m.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingMode:settingMode|Sevensegment:sevensegment|DigitSplitter:splitHours|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingMode:settingMode|Sevensegment:sevensegment|DigitSplitter:splitHours|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingMode:settingMode|Sevensegment:sevensegment|DigitSplitter:splitMinutes|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_3am.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_a2m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod3" CBX_FILE_NAME="lpm_divide_a2m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod5" CBX_FILE_NAME="lpm_divide_82m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod7" CBX_FILE_NAME="lpm_divide_82m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingMode:settingMode|Sevensegment:sevensegment|DigitSplitter:splitHours|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingMode:settingMode|Sevensegment:sevensegment|DigitSplitter:splitMinutes|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_62m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod2" CBX_FILE_NAME="lpm_divide_a2m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ClockPins|ClockTop:ClockTop|SettingsController:controller|lpm_divide:Mod6" CBX_FILE_NAME="lpm_divide_82m.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

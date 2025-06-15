@@ -17,7 +17,7 @@ module SettingMode(
    logic [$clog2(24):0] hours_out;
 
 	always_ff @(posedge clk) begin
-		if (settings_signal == 1) begin
+		if (settings_signal == 0) begin
 			  minutes_out = minutes;
 			  hours_out = hours;
 		 end else begin

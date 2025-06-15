@@ -5,11 +5,27 @@ module ClockTop #(
     input  logic rst,
 	 
 	 // сигнал настройки будильника
-	 input logic settings_signal,
+	 //input logic settings_signal,
+	 input logic time_mode_switch,
+	 input logic alarm_mode_switch,
+	 
+	 input logic min_tens_switch, //0 - единицы, 1 - десятки
+	 input logic hours_tens_switch,
+	 
+	 //сохранение значения
+	 input logic save_switch,
+	 // Кнопки
+	 input logic inc_min_btn,
+	 input logic dec_min_btn,
+	 input logic inc_hour_btn,
+	 input logic dec_hour_btn,
 
     // Текущее время
 	 output logic [$clog2(60):0] minutes,
     output logic [$clog2(24):0] hours,
+	 
+	 // Сигнал изменения времени
+	 output logic set_new_time,
 	 
 	 // Текущее время
 	 output logic [$clog2(60):0] minutes_settings,
@@ -48,9 +64,9 @@ module ClockTop #(
         .clk(clk),
         .rst(rst),
         .inc_tick(minute_tick),
+		  .load_new_time(set_new_time),//
+        .new_value(minutes_settings),//
 		  .counter(minutes),
-        .counter_out_unit(minutes_unit),
-		  .counter_out_ten(minutes_ten),
         .rollover(hour_tick)
     );
 
@@ -61,10 +77,10 @@ module ClockTop #(
     ) hour_counter (
         .clk(clk),
         .rst(rst),
+		  .load_new_time(set_new_time),//
+        .new_value(hours_settings),//
 		  .counter(hours),
-        .inc_tick(hour_tick),
-        .counter_out_unit(hours_unit),
-		  .counter_out_ten(hours_ten)
+        .inc_tick(hour_tick)
     );
 
 	 
@@ -86,15 +102,44 @@ module ClockTop #(
 	 );
 	 
 	 //Настройки времени
-	 TimeSettings #(
-		.MAXMIN(60),
-		.MAXHOURS(24)
-	 ) timeSettings (
-	 .clk(clk),
-	 .settings_signal(settings_signal),
-	 .minutes_settings(minutes_settings),
-	 .hours_settings(hours_settings)
-	 );
+//	 TimeSettings #(
+//		.MAXMIN(60),
+//		.MAXHOURS(24)
+//	 ) timeSettings (
+//	 .clk(clk),
+//	 .settings_signal(settings_signal),
+//	 .minutes_settings(minutes_settings),
+//	 .hours_settings(hours_settings)
+//	 );
+
+	//Настройка времени
+	SettingsController #(
+		.MAX_MINUTES(60),
+	   .MAX_HOURS(24)
+	) controller (
+	.clk(clk),
+	.rst(rst),
+	.cur_minutes(minutes),
+	.cur_hours(hours),
+	// switches
+	.time_mode_switch(time_mode_switch),
+	.alarm_mode_switch(alarm_mode_switch),
+	.save_switch(save_switch),
+	.min_tens_switch(min_tens_switch),
+	.hours_tens_switch(hours_tens_switch),
+	// кнопки
+	.inc_min_btn(inc_min_btn),
+	.dec_min_btn(dec_min_btn),
+	.inc_hour_btn(inc_hour_btn),
+	.dec_hour_btn(dec_hour_btn),
+	
+	// сигнал изменения времени
+	.set_time(set_new_time),
+	
+	.minutes_settings(minutes_settings),
+	.hours_settings(hours_settings)
+	);
+	
 	 
 	 SettingMode settingMode(
 		.clk,
@@ -106,7 +151,7 @@ module ClockTop #(
 		.hours(hours),
 		.minutes_settings(minutes_settings),
 		.hours_settings(hours_settings),
-		.settings_signal(settings_signal)
+		.settings_signal(time_mode_switch)
 	);
 
 endmodule 
