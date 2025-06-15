@@ -25,9 +25,6 @@ module TimeCounter #(
                 counter <= counter + 1;
         end
     end
-
-	 assign counter_out_unit = counter % 10;
-	 assign counter_out_ten = counter / 10;
 	 
     // сообщаем, что прошло 60 минут (+ должен быть тик)
     assign rollover = (counter == MAX_COUNT - 1) && inc_tick;

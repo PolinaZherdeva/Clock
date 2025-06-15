@@ -1,0 +1,4 @@
+module TimeSettings (
+	output logic [$clog2(60):0] minutes_settings,
+   output logic [$clog2(24):0] hours_settings,
+)
