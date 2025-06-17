@@ -13,8 +13,8 @@ module SettingsController #(
 
 	
 	// получаем текущее значение установленного будильника
-//	input logic [$clog2(60)-1:0] cur_alarm_minutes,
-//	input logic [$clog2(24)-1:0] cur_alarm_hours,
+	input logic [$clog2(60)-1:0] cur_alarm_minutes,
+	input logic [$clog2(24)-1:0] cur_alarm_hours,
 	
 	
 	//Режимы (настройка времени/будильника) - переключение switch
@@ -38,10 +38,10 @@ module SettingsController #(
    //Выходы текущего времени
    output logic [$clog2(MAX_MINUTES)-1:0] minutes_settings,
    output logic [$clog2(MAX_HOURS)-1:0]hours_settings,
-	output logic set_time //флаг сохранения нового времени
+	output logic set_time, //флаг сохранения нового времени
 
    //Выходы будильника
-//   output logic set_alarm,
+   output logic set_alarm
 //   output logic [$clog2(MAX_MINUTES)-1:0] alarm_minutes,
 //   output logic [$clog2(MAX_HOURS)-1:0]   alarm_hours	
 );
@@ -52,6 +52,7 @@ module SettingsController #(
 	 
 	 logic modified = 0;//Флаг внесения изменений (для единоразовой загрузки значения)
 	 logic set_new_time = 0; //флаг - буфер для подачи сигнала установки нового времени
+	 logic set_new_alarm = 0; //флаг - буфер для подачи сигнала установки нового будильника
 	 
 	 // Предыдущее состояние кнопок
 	 logic inc_min_btn_prev, dec_min_btn_prev;
@@ -95,7 +96,11 @@ module SettingsController #(
 					hours_reg <= cur_hours;
                minutes_reg <= cur_minutes;
 					modified <= 1;
-            end else if (save_switch && time_mode_switch && modified) begin
+				end else if (alarm_mode_switch && !modified) begin
+					hours_reg <=cur_alarm_hours;
+					minutes_reg <=cur_alarm_minutes;
+					modified <=1;
+            end else if (save_switch && (time_mode_switch || alarm_mode_switch) && modified) begin
 					 // Обработка нажатия кнопок
 					 // минуты
 					 if (inc_min_pressed && !min_tens_switch)
@@ -118,13 +123,21 @@ module SettingsController #(
                     hours_reg <= (hours_reg + 14) % 24;
 				end else if (!save_switch && time_mode_switch && modified) begin
 					set_new_time <= 1;
+				end else if (!save_switch && alarm_mode_switch && modified) begin
+					set_new_alarm <= 1;
 				end
 				// Выход из режима настройки
-            else if (!time_mode_switch && modified) begin
+            else if ((!time_mode_switch || !alarm_mode_switch) && modified) begin
                 modified <= 0;
                 set_new_time <= 0;
+					 set_new_alarm <= 0;
+					 hours_reg <= 0;
+					 minutes_reg <=0;
             end else begin
                 set_new_time <= 0; // сбросим однобитный импульс
+					 set_new_alarm <= 0;
+					 hours_reg <= 0;
+					 minutes_reg <=0;
             end
 				
 				// Обновление истории кнопок
@@ -140,6 +153,7 @@ module SettingsController #(
 	 assign minutes_settings = minutes_reg;
 	 assign hours_settings   = hours_reg;
 	 assign set_time = set_new_time;
+	 assign set_alarm = set_new_alarm;
 
 endmodule
 	 

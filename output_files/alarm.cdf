@@ -4,7 +4,11 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
+<<<<<<< Updated upstream
 		Device PartName(5CGXFC5C6F27) Path("D:/Clock/output_files/") File("alarm.sof") MfrSpec(OpMask(1));
+=======
+		Device PartName(5CGXFC5C6F27) Path("C:/Users/Lenovo/Desktop/Clock/output_files/") File("alarm.sof") MfrSpec(OpMask(1));
+>>>>>>> Stashed changes
 
 ChainEnd;
 

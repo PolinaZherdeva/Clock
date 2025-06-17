@@ -11,18 +11,19 @@ module SettingMode(
 	 input logic [$clog2(60):0] minutes_settings,
     input logic [$clog2(24):0] hours_settings,
 	 
-	 input  logic settings_signal
+	 input  logic time_settings_signal,
+	 input logic alarm_settings_signal
 );
 	logic [$clog2(60):0] minutes_out;
    logic [$clog2(24):0] hours_out;
 
 	always_ff @(posedge clk) begin
-		if (settings_signal == 0) begin
-			  minutes_out = minutes;
-			  hours_out = hours;
-		 end else begin
+		if (time_settings_signal || alarm_settings_signal) begin
 			  minutes_out = minutes_settings;
 			  hours_out = hours_settings;
+		 end else begin
+			  minutes_out = minutes;
+			  hours_out = hours;
 		 end
 	end
 	

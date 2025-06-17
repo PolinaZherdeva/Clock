@@ -21,15 +21,19 @@ module ClockTop #(
 	 input logic dec_hour_btn,
 
     // Текущее время
-	 output logic [$clog2(60):0] minutes,
-    output logic [$clog2(24):0] hours,
+	 output logic [$clog2(60)-1:0] minutes,
+    output logic [$clog2(24)-1:0] hours,
 	 
+	 // Текущий установленный будильник
+	 output logic [$clog2(60)-1:0] alarm_minutes_out,
+    output logic [$clog2(24)-1:0] alarm_hours_out,
 	 // Сигнал изменения времени
 	 output logic set_new_time,
+	 output logic set_new_alarm,
 	 
-	 // Текущее время
-	 output logic [$clog2(60):0] minutes_settings,
-    output logic [$clog2(24):0] hours_settings,
+	 // Новое время при настройках
+	 output logic [$clog2(60)-1:0] minutes_settings,
+    output logic [$clog2(24)-1:0] hours_settings,
 	 
 	 output logic [6:0] seg_hour_tens_3, //HEX3
     output logic [6:0] seg_hour_units_2, //HEX2
@@ -89,9 +93,19 @@ module ClockTop #(
 	 AlarmModule alarmModule (
 	 .clk(clk),
 	 .rst(rst),
+	 // текущее время (для сверки значения будильника и подачи сигнала)
 	 .curr_minutes(minutes),
 	 .curr_hours(hours),
-	 .alarm_trigger(alarm_trigger)
+	 // сигнал срабатывания будильника
+	 .alarm_trigger(alarm_trigger),
+	 // сигнал установки нового будильника
+	 .set_alarm(set_new_alarm),
+	 // передача текущего значения будильника
+	 .alarm_minutes_out(alarm_minutes_out),
+	 .alarm_hours_out(alarm_hours_out),
+	 // новое значение будильника
+	 .new_alarm_minutes(minutes_settings),
+	 .new_alarm_hours(hours_settings)
 	 );
 	 
 	 AlarmSignal alarmSignal (
@@ -119,8 +133,12 @@ module ClockTop #(
 	) controller (
 	.clk(clk),
 	.rst(rst),
+	// текущее время
 	.cur_minutes(minutes),
 	.cur_hours(hours),
+	// текущий будильник
+	.cur_alarm_minutes(alarm_minutes_out),
+	.cur_alarm_hours(alarm_hours_out),
 	// switches
 	.time_mode_switch(time_mode_switch),
 	.alarm_mode_switch(alarm_mode_switch),
@@ -135,6 +153,7 @@ module ClockTop #(
 	
 	// сигнал изменения времени
 	.set_time(set_new_time),
+	.set_alarm(set_new_alarm),
 	
 	.minutes_settings(minutes_settings),
 	.hours_settings(hours_settings)
@@ -151,7 +170,9 @@ module ClockTop #(
 		.hours(hours),
 		.minutes_settings(minutes_settings),
 		.hours_settings(hours_settings),
-		.settings_signal(time_mode_switch)
+		.time_settings_signal(time_mode_switch),
+		.alarm_settings_signal(alarm_mode_switch)
+		
 	);
 
 endmodule 
